@@ -3,97 +3,179 @@
 
 .body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--Soft-yellow);
-    font-family: 'Jaldi', sans-serif;
-    height: 100vh; 
+    justify-content: center; /*Alineacion en el eje X*/
+    font-family: 'Jaldi', sans-serif; 
+    margin: 0; /*Margen*/
+    padding: 0; 
+    background-color: var(--Soft-yellow); /*Color de fondo*/
+    height: 100vh; /*Espacio*/
 }
 
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+    margin: 10px; /*Margen*/
+}
+/*------------------------------*/
+
+
+/*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------*/
+
+/*------Configuracion Logo en grande*/
+/*Tamaño de logo*/
 #logo_img {
-    width: 616px;
-    height: 616px;
-    margin-left: 5%;
+    width: 616px; /*Ancho*/ 
+    height: 616px; /*Largo*/
 }
-
+/*Posición del logo*/
 .logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1%;
-    margin-left: 15%;
 }
+/*------------------------------*/
+/*------------------------------------------------------------------------*/
 
-.tittle {
-    font-size: 70px;
-    margin-top: 9%;
-    text-align: center;
-    font-family:'Courier New', Courier, monospace;
-}
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
+/*------------------------LADO DERECHO DE LA PÁGINA-------------------*/
+
+
+/*-------------Descripción del juego*/
+/*Configuracion de contenedor*/
 .introduction {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-right: 25%;
-    margin-left: 3%;
+    flex-direction: column;/*Direccion en que se mostrara el contenido*/
+    align-items: center;
+    justify-content: center;/*Alineacion en el eje X*/
+    width: 45%; /*Ancho*/
+    margin: 20px; /*Margen*/
 }
 
-.resume {
-    background-color: #FAFAFA;
-    border-radius: 30px;
-    font-size: 24px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 30px;
-    text-align: justify;
+/*Título de Bienvenida*/
+.tittle {
+    display: flex;
+    font-size: 70px; /*Tamaño de letra*/
+    text-align: center; /*Posición de texto*/
+    color: var(--Clare-red);
+    margin-bottom: 25px; /*Margen en la parte inferior*/
     font-family:'Courier New', Courier, monospace;
 }
 
-.button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 75px;
-    border-radius: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 10px;
-    color: var(--White);
-    background-color: var(--Soft-green);
-    border: 4px solid var(--Green);
+/*Configuracion de descripcion*/
+.resume {
+    color: var(--Dark-red); /*Color de letra*/
+    background-color: var(--White); /*Color de fondo*/
+    border-radius: 30px; /*Redondeado*/
+    font-size: 24px; /*Tamaño de letra*/
+    padding: 20px; /*Tamaño del Padding*/
+    margin-bottom: 25px;
+    text-align: justify; /*Alineacion de texto*/
+    font-family:'Courier New', Courier, monospace;
 }
+/*------------------------------*/
 
-.button:hover {
-    background-color: var(--Yellow);
-    border: 4px solid var(--Dark-red);
-    color: var(--Dark-red);
-    flex-direction: row;
-}
 
+/*------BOTONES EN LA PARTE INFERIOR*/
+/*Configuración de contenedor*/
 .buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;/*Alineacion en el eje X*/
+    align-items: center; /*Alineacion en el eje Y*/ 
     margin: 2.5%;
 }
-
-.tittle {
-    color: var(--Clare-red);
-    margin-bottom: 25px;
+/*Configuración de botones*/
+.button {
+    display: flex;
+    /*Alineacion de contenido de botones*/
+    align-items: center;
+    justify-content: center;
+    /*----------------------------------*/
+    width: 50%; /*ANCHO*/
+    height: 90px;
+    border-radius: 50px; /*Redondeo*/
+    font-size: 30px; /*Tamaño de letra*/
+    font-weight: bold; /*Negrita*/
+    margin: 10px; 
+    color: var(--White); /*Color de letra*/
+    background-color: var(--Soft-green); /*Color de botón*/
+    border: 4px solid var(--Green); /*Borde de botón*/
 }
 
-.resume{
-    color: var(--Dark-red);
-    margin-bottom: 25px;
+/*Cambio de botones cuando el cursos pase encima*/
+.button:hover {
+    background-color: var(--Yellow); /*Color de botón*/
+    border: 4px solid var(--Dark-red); /*Borde de botón*/
+    color: var(--Dark-red); /*Color de letra*/
 }
+/*--------------------------*/
 
 
+/*------------------------------------------------------------------------*/
+
+
+
+/*------------------------PANTALLA MOVIL------------------*/
+@media (max-width: 480px){
+    .body {
+        height: 100vh; /*Espacio*/
+    }
+    /*------Configuracion de contenedor*/
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /*Alineacion en el eje X*/
+        margin: 10px; /*Margen*/
+    }
+    /*--------------------------------*/
+
+    /*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------*/
+    /*------Configuracion Logo en grande*/
+    /*Tamaño de logo*/
+    #logo_img {
+        width: 150px; /*Ancho*/ 
+        height: 150px; /*Largo*/
+    }
+    /*Posición del logo*/
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    /*------------------------------------------------------------------------*/
+    /*------------------------LADO DERECHO DE LA PÁGINA-------------------*/
+    /*-------------Descripción del juego*/
+    /*Configuracion de contenedor*/
+    .introduction {
+        width: 100%; /*Ancho*/
+    }
+
+    /*Título de Bienvenida*/
+    .tittle {
+        font-size: 40px; /*Tamaño de letra*/
+        margin-bottom: 15px; /*Margen en la parte inferior*/
+    }
+
+    /*Configuracion de descripcion*/
+    .resume {
+        color: var(--Dark-red); /*Color de letra*/
+        border-radius: 30px; /*Redondeado*/
+        font-size: 14px; /*Tamaño de letra*/
+        padding: 20px; /*Tamaño del Padding*/
+        margin-bottom: 25px;
+        text-align: justify; /*Alineacion de texto*/
+        font-family:'Courier New', Courier, monospace;
+    }
+    /*------------------------------*/
+
+    /*------BOTONES EN LA PARTE INFERIOR*/
+    /*Configuración de botones*/
+    .button {
+        font-size: 20px; /*Tamaño de letra*/
+    }
+    /*------------------------------*/
+    /*------------------------------------------------------------------------*/
+
+}

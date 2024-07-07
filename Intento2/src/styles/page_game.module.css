@@ -1,61 +1,74 @@
 @import url('color_and_general.css');
-
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@700&display=swap');
 
 .body {
     font-family: 'Jaldi', sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0; /*Relleno*/
+    padding: 0; /*Margen*/
     background-color: var(--Soft-green);
 }
 
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    flex-direction: row; /*Direccion en que se mostrara el contenido*/
+    align-items: flex-start; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    padding: 0; /*Relleno*/
+    margin: 10px; /*Margen*/
+    width: 100%; /* Asegurar que ocupe todo el ancho */
+}
+/*------------------------------*/
+
+/*----------BARRA DE OPCIONES----------*/
+
+/*------Configuracion general*/
+/*Contenedor de Menu*/
 .navbar {
-    width: auto;
-    background-color: var(--Dark-red);
-    overflow: hidden;
     display: flex;
-    padding: 0;
-    align-items: stretch;
+    width: auto; /*Ancho del Menú*/
+    background-color: var(--Dark-red); /*Color del Menu*/
+    overflow: hidden; /*Evita que se salga el cotenido*/
+    padding: 0; /*Relleno*/
+    align-items: stretch; /*Alineacion en el eje Y*/
 }
-
+/*----Control de la lista Ul*/
+/*Muestra Ul*/
 .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    list-style-type: none; /*No deja ver los guiones*/
+    margin: 0; /*Margen*/
+    padding: 0; /*Relleno*/
 }
 
-.navbar li {
-    position: relative;
-}
-
+/*Configuracion de opciones*/
 .navbar li a {
     display: block;
-    color: var(--White);
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
+    color: var(--White); /*Color de text0*/
+    text-align: center; /*Alineacion de texto*/
+    padding: 14px 20px; /*Relleno*/
+    text-decoration: none; /*Se quita el decorado*/
 }
+/*------------------------------*/
 
-.right li a:hover {
-    background-color: var(--Yellow);
-    color: var(--Dark-red);
-}
+/*------Barra a la izquierda*/
 
 .navbar .left {
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-    font-size: 20px;
+    display: flex; 
+    align-items: center;  /*Alineacion en el eje Y*/
+    margin-right: auto;   /*Margen Izquierda*/
+    font-size: 20px; /*Tamaño de texto*/
 }
 
 .navbar .left a {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    font-size: 30px;
+    align-items: center; /*Alineacion en el eje Y*/
+    text-decoration: none; /*Se quita el decorado*/ 
+    color: white; /*Color de letra*/
+    font-size: 30px; /*Tamaño de texto*/
 }
 
+/*Logo en la barra de opciones*/
 .navbar .left img {
     width: 40px; /* Ajusta el tamaño de la imagen */
     height: 40px; /* Ajusta el tamaño de la imagen */
@@ -63,164 +76,232 @@
     border-radius: 50%; /* Bordes redondeados */
 }
 
+/*------ Barra a la derecha*/
+
+/*Configuracion de botones*/
 .navbar .right {
     display: flex;
     align-items: center;
     font-size: 20px;
 }
 
+/*Cuando pase el cursos encima*/
+.right li a:hover {
+    background-color: var(--Yellow); /*Color de Fondo*/
+    color: var(--Dark-red); /*Color letra*/
+}
+
+/*Logo de Menu*/
 #logo {
-    width: 100px;
-    height: auto;
+    width: 100px; /*Ancho de imagen*/
+    height: auto; /*Largo de imagen*/
 }
 
-/*----ABAJO DEL MENU---*/
-
-.game_full {
-    margin: 15px;  
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    width: 100%; /* Asegurar que ocupe todo el ancho */
-}
-
-ul {
-    list-style-type: none;
-}
-
-.container li {
-    margin: 2%;
-}
-
-/*FONDO DE PANTALLA*/
-
-.bottom  {
-    display: flex;
-    background-color: bisque;
-    width: 200px;
-    height: 449px;
-    border-radius: 20px;
-    text-align: center;
-    color: var(--Yellow);
-    margin: 16px;
-}
-
-.bottom p {
-    font-family: 'Jaldi', sans-serif;
-    font-size: 20px;
-    text-shadow: 
-      -1px -1px 0 var(--Dark-red),  
-      1px -1px 0 var(--Dark-red),
-      -1px 1px 0 var(--Dark-red),
-      1px 1px 0 var(--Dark-red); /* Color del borde*/
-}
-
-/*BOTONES*/
-
-.buttons {
+/*----------------------JUEGO EN GENERAL CARGADO POR DEFAULT-------------------*/
+/*Contenedor General de las funciones*/
+.game_full_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 0%;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+
 }
 
-.buttons {
-    margin: 16px;
-    width: 100px;
+/*--------------------OPCION DE FONDOS DE PANTALLA*/
+/*Contenedor General del Fondos*/
+.bottom  {
+    display: flex; 
+    background-color: bisque; 
+    width: 200px; /*Largo*/
+    height: 449px; /*Ancho*/
+    border-radius: 20px; /*Redondeado del contenedor*/
+    text-align: center; /*Alineacion de Texto*/
+    color: var(--Yellow); /*Color de Texto*/
+    margin: 16px; /*Margen*/
 }
 
-.button {
-    margin: 4px;
-    width: 101px;
-    height: 101px;
-    border-radius: 50%;
+/*Configuración de Texto*/
+.bottom p {
+    font-family: 'Jaldi', sans-serif;
+    font-size: 20px; /*Tamaño de texto*/
+    /*Me permite pornerle borde a las palabras*/
+    text-shadow: 
+      -1px -1px 0 var(--Dark-red), /* Sombra en la parte superior izquierda del texto */
+      1px -1px 0 var(--Dark-red), /* Sombra en la parte superior derecha del texto */
+      -1px 1px 0 var(--Dark-red), /* Sombra en la parte inferior izquierda del texto */
+      1px 1px 0 var(--Dark-red);  /* Sombra en la parte inferior derecha del texto */
 }
+/*--------------------------------------------------*/
 
-/*EL JUEGO*/
 
-.game_full {
-    margin: 0%;
-    padding: 0%;
-}
+/*------------------------------------EL JUEGO*/
 
+/*Contenedor de Juego*/
 .game {
-    background-color: rebeccapurple;
     display: flex;
-    width: 958px;
-    margin: 16px;
-    border-radius: 20px;
+    overflow: hidden; /*Evitar que se salgan los objetos*/
+    background-color: rebeccapurple; /*Color para visualizar el componente*/
+    width: 958px; /*Ancho*/
+    margin: 16px; /*Margen*/
+    border-radius: 20px; /*Redondeado de contenedor*/
 }
 
+/*Almacenamiento de Fondo y Personaje*/
 .background_game {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 0;
-    width: 449px;
-    height: 449px;
-    background-image: url('../img/background_game.png');
+    display: grid; /* Divide el fondo en una cuadrícula */
+    grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
+    grid-template-rows: repeat(5, 1fr); /* Crea 5 filas de igual tamaño */
+    gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
+    width: 449px; /*Ancho*/
+    height: 449px; /*Largo*/
+    background-image: url('../img/background_game.png'); /*Fondo del Juego*/
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen en el fondo */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+
 }
 
+/*Espacio para los checklist*/
 .checklist_options {
-    display: grid;
-    grid-template-rows: repeat(5, 1fr);
-    gap: 0;
-    width: 509px;
-    height: 449px;
-    background-color: var(--White);
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    display: grid; /* Divide el fondo en una cuadrícula */
+    grid-template-rows: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
+    gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
+    width: 509px; /*Ancho*/
+    height: 449px; /*Largo*/
+    background-color: var(--White); /*Color del Fondo*/
 }
 
+/*Parametros del personaje*/
 #character {
     display: flex;
-    width: 280px;
-    height: auto;
-    grid-column: 2/ span 3;
-    grid-row: 3 / span 2; /* ocupa las filas 4 y 5 */
+    width: 280px; /*Ancho de personaje*/
+    height: auto; /*Largo de personaje*/
+    grid-column: 2/ span 3; /* Ocupa desde la columna 2 y se extiende por 3 columnas */
+    grid-row: 3 / span 2; /*Ocupa desde la fila 3 y se extiende por 2 filas*/
     border: none; /* si no quieres borde alrededor del personaje */
 }
+/*--------------------------------------------------*/
 
-/*PERSONAJE*/
 
-/*TIPS*/
-  
+/*------------------------------------------TIPS*/
+/*Contenedor de Tips*/  
 .tips {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: aqua;
-    width: 958px;
-    height: 150px;
-    border-radius: 20px;
-    margin: 16px;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: aqua; /*Color de fondo*/
+    width: 958px; /*Ancho de contenedor*/
+    border-radius: 20px; /*Redondeado de contenedor*/
+    margin: 16px; /*Margen*/
 }
-  
+
+/*Contenedor de texto e imagen*/
 .text_img {
     display: flex;
-    align-items: center;
-    height: 100%;
+    align-items: center; /*Alineacion en el eje Y*/
+    height: 100%; /*Largo de contenedor*/
     justify-content: space-between; /* Espaciado entre los elementos */
-    margin: 30px;
+    text-align: justify; /*Alineacion en el eje X*/
+    margin: 30px; /*Margen*/
 }
-  
+
+/*Contenedor de texto*/
 .text {
-    height: 70%;
+    height: 70%; /*Espacio que ocupa texto en contenedor*/
+    margin: 5px;
 }
-  
+
+/*Imagen de Tips*/
 .tips img {
-    width: 100px;
-    height: 100px;
+    width: 100px; /*Ancho de imagen*/
+    height: 100px; /*Largo de imagen*/
+    margin: 20px;
 }
+/*--------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------------------*/
 
 
+/*--------------------------------PANTALLA MOVIL----------------------------------*/
+
+
+@media (max-width: 768px) {
+
+    /*------Configuracion de contenedor*/
+    .container {
+        display: flex;
+        flex-direction: column; /*Direccion en que se mostrara el contenido*/
+        align-items: center; /*Alineacion en el eje Y*/
+        justify-content: center; /*Alineacion en el eje X*/
+    }
+    /*------------------------------------*/
+
+
+    /*----------------------------BARRA DE OPCIONES-------------------*/
+
+    /*------Configuracion general*/
+    /*Contenedor de Menu*/
+    .navbar {
+        display: flex;
+        flex-direction: column; /*Direccion en que se mostrara el contenido*/
+        align-items: center; /*Alineacion en el eje Y*/
+    }
+    /*--------------------------------------*/
+
+    /*--------------------------------------------------------------*/
+
+    /*----------------------JUEGO EN GENERAL CARGADO POR DEFAULT-------------------*/
+    /*Contenedor General de las funciones*/
+    .game_full {
+        display: flex;
+        flex-direction: column; /*Direccion en que se mostrara el contenido*/
+        align-items: center; /*Alineacion en el eje Y*/
+        justify-content: center; /*Alineacion en el eje X*/
+
+    }
+
+
+    /*--------------------OPCION DE FONDOS DE PANTALLA*/
+    /*Contenedor General del Fondos*/
+    .bottom  {
+        display: flex;
+        justify-content: center; /*Alineacion en el eje X*/
+        width: 360px; /*Ancho del contenedor*/
+        height: 200px; /*Largo del contenedor*/
+
+    }
+    /*------------------------------------------------*/
+
+    /*------------------------------------EL JUEGO*/
+    /*Contenedor de Juego*/
+    .game {
+        display: flex;
+        flex-direction: column; /*Direccion en que se mostrara el contenido*/
+        width: 360px; /*Ancho*/
+    }
+
+    /*Almacenamiento de Fondo y Personaje*/
+    .background_game {
+        width: 360px; /*Ancho*/
+        height: 360px; /*Alto*/
+    }
+
+    /*Parametros del personaje*/
+    #character {
+        width: 225px; /*Ancho de personaje*/
+        height: auto; /*Largo de personaje*/
+    }
+
+    /*Espacio para los checklist*/
+    .checklist_options {
+        height: 360px; /*Alto*/
+        width: 360px;; /*Ancho*/
+    }
+
+    /*------------------------------------------TIPS*/
+    /*Contenedor de Tips*/ 
+    .tips {
+        width: 360px; /*Ancho de contenedor*/
+    }
+    /*------------------------------------------------*/
+  }

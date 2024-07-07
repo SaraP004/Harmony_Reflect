@@ -4,118 +4,214 @@
 
 .body {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--Soft-green);
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: var(--Soft-green); /*Color de fondo*/
     font-family: 'Jaldi', sans-serif;
-    height: 100vh; 
+    height: 100vh; /*Espacio*/
 }
 
-.label {
-    color: var(--Dark-red);
-    font-size: 16px;
-}
-
-
-#registra_img {
-    width: 616px;
-    height: 616px;
-}
-
-.imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.headline {
-    display: flex;
-    text-align: center;
-    font-size: 60px;
-    color: var(--Dark-red);
-    margin-bottom: 10px;
-}
-
-
+/*------Configuracion de contenedor*/
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
 }
 
+/*------------------------------*/
+/*------------------------LADO DERECHO DE LA PÁGINA-------------------*/
+/*------Configuracion de contenedor*/
 .space {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    width: 55%; /*Ancho Espacio*/
+    margin: 20px; /*Margen*/
 }
+/*------------------------------*/
 
+/*-------------------Configuracion de  Formulario*/
+/*Contenedor*/
 .form {
     display: flex;
-    flex-direction: column;
-    background-color: var(--Bright-yellow);
-    width: 650px;
-    border-radius: 20px;
-    font-size: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    justify-content: center;
-    align-items: stretch;
-    margin: 0;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    background-color: var(--Bright-yellow); /*Color de fondo*/
+    border-radius: 20px; /*Redondeado*/
+
+    /*---Configuración de Anchura PADDING*/
+    padding-top: 10px; /*Arriba*/
+    padding-bottom: 10px; /*Abajo*/
+    padding-left: 30px; /*Izquierda*/
+    padding-right: 30px; /*Derecha*/
+    /*----------------------------------*/
 }
 
+
+/*Titulo*/
+.headline{
+    display: flex; /*Alineo al centro automáticamente*/
+    text-align: center; /*Posición de texto*/
+    font-size: 50px; /*Tamaño de letra*/
+    color: var(--Dark-red); /*Color de texto*/
+    margin-bottom: 10px; /*Margen Abajo*/
+}
+
+
+/*-------Requisitos de Usuario*/
+/*Contenedor de Labels*/
 .labels {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: stretch;
-    padding: 0;
-    margin: 0;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    align-items: flex-start; /*Alineacion en el eje Y*/
     
 }
 
-input {
-    width: 100%;
-    height: 47px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    color: var(--Blue-navy);
+/*Requerimientos texto*/
+#username, #password {
+    font-size: 20px;  /*Tamaño de letra*/ 
 }
 
+/*Espacios para llenar formulario*/
+input {
+    display: flex;
+    width: 100%; /*Ancho*/
+    height: 47px; /*Largo*/
+    border-radius: 10px; /*Redondeado*/
+    margin-bottom: 20px; /*Margen Abajo*/
+    font-size: 20px; /*Tamaño de letra*/
+    color: var(--Blue-navy); /*Color de texto*/
+}
+
+/*------ Configuracion botones*/
+/*Configuración de contenedor*/
+.buttons {
+    display: flex; 
+    justify-content: center;   
+    margin-top: 2%; 
+}
+
+/*Configuración de botones*/
 .button {
     display: flex;
     border: none;
+    /*Alineacion de contenido de botones*/
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 90px;
-    border-radius: 50px;
-    font-size: 30px;
-    font-weight: bold;
-    margin: 10px;
-    color: var(--White);
-    background-color: var(--Yellow);
+    /*----------------------------------*/
+    width: 50%; /*Ancho*/
+    height: 90px; /*Largo*/
+    border-radius: 50px; /*Redondeado*/
+    font-size: 30px; /*Tamaño de letra*/
+    font-weight: bold; /*Negrita de letra*/
+    margin: 10px; /*Margen*/
+    color: var(--White); /*Color de texto*/
+    background-color: var(--Yellow); /*Color de botón*/
 }
 
+/*---Color de botones cuando pasa el cursor*/
+/*Bototn de Aceptar*/
 #AcceptButton:hover {
-    border: 4px solid var(--Green);
-    color: var(--Green);
+    border: 4px solid var(--Green); /*Color de borde de botón*/
+    color: var(--Green); /*Color de texto*/
 }
-
+/*Bototn de Cancelar*/
 #CancelButton:hover {
-    border: 4px solid var(--Red);
-    color: var(--Red);
+    border: 4px solid var(--Red); /*Color de borde de botón*/
+    color: var(--Red); /*Color de texto*/
 }
+/*----------------------------------------*/
 
-.buttons {
+/*--------------------------------------------*/
+/*--------------------------------------------------*/
+
+/*------------------------------------------------------------------------*/
+
+
+/*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------------*/
+/*-------Configuracion para la Imagen*/
+/*Contenedor de Imagen*/
+.imagen {
     display: flex;
-    justify-content: center;
-    margin-top: 2%;
-
+    justify-content: center; /*Alineacion en el eje X*/
+    align-items: center; /*Alineacion en el eje Y*/
+    width: 40%; /*Ancho de contenedor*/
 }
 
-.tittle {
-    font-size: 60px;
+/*Imagen*/
+#registra_img {
+    width: auto; /*Ancho de Imagen*/
+    height: 550px; /*Largo de Imagen*/
+}
+
+/*------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+
+/*------------------------LADO DERECHO DE LA PÁGINA-------------------------*/
+/*-------Configuracion para la Imagen*/
+/*Contenedor de Imagen*/
+.imagen {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+    align-items: center; /*Alineacion en el eje Y*/
+    width: 40%; /*Ancho de contenedor*/
+}
+
+/*Imagen*/
+.registra_img {
+    width: 450px; /*Ancho de Imagen*/
+    height: auto; /*Largo de Imagen*/
+}
+
+/*------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+
+/*------------------------PANTALLA MOVIL------------------*/
+@media (max-width: 480px){
+
+    .body {
+        height: 100%;
+    }
+
+    /*------Configuracion de contenedor*/
+    .container {
+        display: flex;
+        flex-direction: column; /*Direccion en que se mostrara el contenido*/
+        margin: 10px;
+    }
+    /*------------------------------*/
+
+    /*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------*/
+
+    /*-------------------Configuracion de  Formulario*/
+    /*------Configuracion de contenedor*/
+    .space {
+        width: 90%; /*Ancho Espacio*/
+    }
+    /*------------------------------*/
+
+    /*Titulo*/
+    .headline{
+        font-size: 30px; /*Tamaño de letra*/
+    }
+    /*----------------------------------------------*/
+
+    /*------------------------ Configuracion botones*/
+    /*Configuración de botones*/
+    .button {
+        font-size: 20px; /*Tamaño de letra*/ 
+    }
+    /*--------------------------------------------------------------------------*/
+    
+
+    /*------------------------LADO DERECHO DE LA PÁGINA-------------------------*/
+    /*-------Configuracion para la Imagen*/
+    /*Imagen*/
+    #registra_img {
+        width: 200px; /*Ancho de Imagen*/
+        height: auto; /*Largo de Imagen*/
+    }
+    /*------------------------------------*/
+    /*--------------------------------------------------------------------------*/
 }
