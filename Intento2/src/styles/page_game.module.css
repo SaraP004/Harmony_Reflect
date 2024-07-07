@@ -1,0 +1,226 @@
+@import url('color_and_general.css');
+
+
+.body {
+    font-family: 'Jaldi', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--Soft-green);
+}
+
+.navbar {
+    width: auto;
+    background-color: var(--Dark-red);
+    overflow: hidden;
+    display: flex;
+    padding: 0;
+    align-items: stretch;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar li a {
+    display: block;
+    color: var(--White);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.right li a:hover {
+    background-color: var(--Yellow);
+    color: var(--Dark-red);
+}
+
+.navbar .left {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+.navbar .left a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+
+.navbar .left img {
+    width: 40px; /* Ajusta el tamaño de la imagen */
+    height: 40px; /* Ajusta el tamaño de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    border-radius: 50%; /* Bordes redondeados */
+}
+
+.navbar .right {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+#logo {
+    width: 100px;
+    height: auto;
+}
+
+/*----ABAJO DEL MENU---*/
+
+.game_full {
+    margin: 15px;  
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Asegurar que ocupe todo el ancho */
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container li {
+    margin: 2%;
+}
+
+/*FONDO DE PANTALLA*/
+
+.bottom  {
+    display: flex;
+    background-color: bisque;
+    width: 200px;
+    height: 449px;
+    border-radius: 20px;
+    text-align: center;
+    color: var(--Yellow);
+    margin: 16px;
+}
+
+.bottom p {
+    font-family: 'Jaldi', sans-serif;
+    font-size: 20px;
+    text-shadow: 
+      -1px -1px 0 var(--Dark-red),  
+      1px -1px 0 var(--Dark-red),
+      -1px 1px 0 var(--Dark-red),
+      1px 1px 0 var(--Dark-red); /* Color del borde*/
+}
+
+/*BOTONES*/
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0%;
+}
+
+.buttons {
+    margin: 16px;
+    width: 100px;
+}
+
+.button {
+    margin: 4px;
+    width: 101px;
+    height: 101px;
+    border-radius: 50%;
+}
+
+/*EL JUEGO*/
+
+.game_full {
+    margin: 0%;
+    padding: 0%;
+}
+
+.game {
+    background-color: rebeccapurple;
+    display: flex;
+    width: 958px;
+    margin: 16px;
+    border-radius: 20px;
+}
+
+.background_game {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0;
+    width: 449px;
+    height: 449px;
+    background-image: url('../img/background_game.png');
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el fondo */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.checklist_options {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 0;
+    width: 509px;
+    height: 449px;
+    background-color: var(--White);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#character {
+    display: flex;
+    width: 280px;
+    height: auto;
+    grid-column: 2/ span 3;
+    grid-row: 3 / span 2; /* ocupa las filas 4 y 5 */
+    border: none; /* si no quieres borde alrededor del personaje */
+}
+
+/*PERSONAJE*/
+
+/*TIPS*/
+  
+.tips {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+    width: 958px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 16px;
+}
+  
+.text_img {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    margin: 30px;
+}
+  
+.text {
+    height: 70%;
+}
+  
+.tips img {
+    width: 100px;
+    height: 100px;
+}
+
+

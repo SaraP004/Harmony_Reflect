@@ -1,0 +1,19 @@
+@import url('color_and_general.css');
+
+
+.menuItem {
+    position: relative;
+  }
+  
+.menuItem a {
+    display: block;
+    color: var(--White);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+.menuItem a:hover {
+    background-color: var(--Yellow);
+    color: var(--Dark-red);
+  }

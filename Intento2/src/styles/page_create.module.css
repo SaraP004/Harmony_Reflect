@@ -1,0 +1,126 @@
+@import url('color_and_general.css');
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Soft-green);
+    font-family: 'Jaldi', sans-serif;
+    height: 100vh; 
+}
+
+.label {
+    color: var(--Dark-red);
+    font-size: 16px;
+}
+
+.registra_img {
+    width: 616px;
+    height: 616px;
+}
+
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headline{
+    display: flex;
+    text-align: center;
+    font-size: 60px;
+    color: var(--Dark-red);
+    margin-bottom: 10px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Bright-yellow);
+    width: 650px;
+    border-radius: 20px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+.inputField {
+
+    width: 90%;
+    height: 47px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--Blue-navy);
+}
+
+.button {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 90px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    color: var(--White);
+    background-color: var(--Yellow);
+}
+
+#AcceptButton:hover {
+    border: 4px solid var(--Green);
+    color: var(--Green);
+}
+
+#CancelButton:hover {
+    border: 4px solid var(--Red);
+    color: var(--Red);
+}
+
+.buttons {
+    display: flex; 
+    justify-content: center;   
+    margin-top: 2%;
+    
+}
+
+#username {
+    font-size: 20px;
+    
+}
+
+#email{
+    font-size: 20px;
+}
+
+#password{
+    font-size: 20px;
+}
+
+.tittle {
+    font-size: 10px;
+}

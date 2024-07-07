@@ -1,0 +1,121 @@
+@import url('color_and_general.css');
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@700&display=swap');
+
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Soft-green);
+    font-family: 'Jaldi', sans-serif;
+    height: 100vh; 
+}
+
+.label {
+    color: var(--Dark-red);
+    font-size: 16px;
+}
+
+
+#registra_img {
+    width: 616px;
+    height: 616px;
+}
+
+.imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headline {
+    display: flex;
+    text-align: center;
+    font-size: 60px;
+    color: var(--Dark-red);
+    margin-bottom: 10px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Bright-yellow);
+    width: 650px;
+    border-radius: 20px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    justify-content: center;
+    align-items: stretch;
+    margin: 0;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: stretch;
+    padding: 0;
+    margin: 0;
+    
+}
+
+input {
+    width: 100%;
+    height: 47px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--Blue-navy);
+}
+
+.button {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 90px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    color: var(--White);
+    background-color: var(--Yellow);
+}
+
+#AcceptButton:hover {
+    border: 4px solid var(--Green);
+    color: var(--Green);
+}
+
+#CancelButton:hover {
+    border: 4px solid var(--Red);
+    color: var(--Red);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+
+}
+
+.tittle {
+    font-size: 60px;
+}
