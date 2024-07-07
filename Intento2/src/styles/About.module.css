@@ -1,0 +1,242 @@
+@import url('color_and_general.css');
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@700&display=swap');
+
+.body {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: var(--Soft-green); /*Color de fondo*/
+    font-family: 'Jaldi', sans-serif;
+    height: 100%; /*Espacio*/
+    margin: 0;
+    padding: 0;
+}
+
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    flex-direction: column;/*Direccion en que se mostrara el contenido*/
+    align-items: flex-start; /*Alineacion en el eje Y*/
+    justify-content: center;
+    width: 100%; /*Alineacion en el eje X*/
+    margin: 20px;
+}
+/*------------------------------*/
+
+/*----------------------------SECCION DE DATOS DE PAGINA-----------------------*/
+/*---------------Datos generales de la pagina-------*/
+
+/*Contenedor de la página*/
+.aboutContainer {
+    display: flex;
+    align-items: center;/*Alineacion en el eje Y*/
+    justify-content: space-around;/*Alineacion en el eje X*/
+    background-color: var(--Soft-blue);
+    border-radius: 30px;  /*Redondea el contenedor*/
+    margin-bottom: 20px; /*Margen en la parte Inferior*/
+}
+
+/*-------------------Descripcion*/
+/*Texto del contenedor*/
+.textAbout{
+    width: 70%; /*Ancho que ocupara*/
+}
+/*Título*/
+.aboutContainer h1{
+    color: var(--White); /*Color de texto*/
+}
+/*Configuracion de texto*/
+.aboutContainer p {
+    font-size: 20px; /*Tamaño de texto*/
+    color: var(--White); /*Color de texto*/
+    text-align: justify; /*Alineacion de texto*/
+}
+/*--------------------------------------*/
+
+/*-----------------------Imagen*/
+#imgDescription {
+    width: auto; /*Ancho de la Imagen*/
+    height: 250px; /*Alto de la Imagen*/
+}
+/*--------------------------------------*/
+
+/*------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------*/
+
+
+
+/*----------------------------SECCION DE DATOS DE PAGINA-----------------------*/
+/*---------------Datos generales de nuestro equipos----------*/
+/*Contenedor de la página*/
+.aboutUS {
+    display: flex;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    align-items: center;/*Alineacion en el eje Y*/
+    justify-content: space-around;/*Alineacion en el eje X*/
+    background-color: var(--White);
+    border-radius: 30px;  /*Redondea el contenedor*/
+}
+
+/*---------------Titulo y pequeña descripción-------*/
+/*Contenedor de Texto en general*/
+.textAboutUs {
+    display: flex;
+    flex-direction: column;/*Alineacion en el eje Y*/
+    justify-content: center;/*Alineacion en el eje X*/
+    width: 94%; /*Ancho Contenedor*/
+
+}
+
+/*Título*/
+.aboutUS h1{
+    color: var(--Dark-red); /*Color de texto*/
+    text-align: center; /*Alineacion de texto*/
+}
+/*Configuracion de texto*/
+.aboutUS p {
+    font-size: 20px; /*Tamaño de texto*/
+    text-align: justify; /*Alineacion de texto*/
+}
+/*---------------------------------------------------*/
+
+/*---------------Integrantes del equipo--------------*/
+/*Contenedor de todos los integrantes*/
+.AboutUs {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+}
+
+
+/*Contenedor de un integrante*/
+.member {
+    display: flex;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: var(--Yellow); /*Color de Fondo*/
+    width: 25%; /*Ancho*/
+    margin: 20px; /*Margen*/
+    padding: 20px; /*Espaciado*/
+    border-radius: 30px; /*Redondeado*/
+}
+
+/*Nombre del Integrante*/
+.member h1 {
+    font-size: 30px; /*Tamaño de Texto*/
+    color: var(--Dark-red); /*Color de Texto*/
+}
+
+
+/*Descripcion del Integrante*/
+.member p {
+    font-size: 15px; /*Tamaño de Texto*/
+    width: 80%; /*Ancho*/
+    text-align: center; /*Alineacion de texto*/
+}
+/*-----------------------Imagen*/
+/*Imagen del integrante*/
+#member_png {
+    display: flex;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    width: 200px; /*Ancho*/
+    height: 200px; /*Largo*/
+}
+/*--------------------------------------*/
+
+/*---------------------------------------------------*/
+
+
+/*----------------------------------------------------------------------------------*/
+
+/*------------------------PANTALLA MOVIL------------------*/
+@media (max-width: 480px){
+    .body {
+        height: 100%;
+    }
+
+    /*------Configuracion de contenedor*/
+    .container {
+        display: flex;
+        flex-direction: column;/*Direccion en que se mostrara el contenido*/
+        align-items: flex-start; /*Alineacion en el eje Y*/
+        justify-content: center;
+        width: 100%; /*Alineacion en el eje X*/
+        margin: 20px;
+    }
+
+    /*----------------------------SECCION DE DATOS DE PAGINA-----------------------*/
+    /*---------------Datos generales de la pagina-------*/
+
+    /*-------------------Descripcion*/
+    /*Texto del contenedor*/
+    .textAbout{
+        width: 50%; /*Ancho que ocupara*/
+    }
+    
+    
+    /*Título*/
+    .aboutContainer h1{
+        font-size: 20px; /*Tamaño de letra*/
+    }
+
+    /*Configuracion de texto*/
+    .aboutContainer p {
+        font-size: 10px; /*Tamaño de texto*/
+    }
+    /*--------------------------------------*/
+
+    /*-----------------------Imagen*/
+    #imgDescription {
+        width: auto; /*Ancho de la Imagen*/
+        height: 150px; /*Alto de la Imagen*/
+    }
+    /*--------------------------------------*/
+    /*--------------------------------------*/
+    
+    /*------------------------------------------------------*/
+    
+    /*----------------------------------------------------------------------------------*/
+    
+    
+    
+    /*----------------------------SECCION DE DATOS DE PAGINA-----------------------*/
+    /*---------------Datos generales de nuestro equipos----------*/
+    /*---------------Titulo y pequeña descripción-------*/
+    /*Título*/
+    .aboutUS h1{
+        font-size: 25px; /*Tamaño de texto*/
+    }
+
+    /*Configuracion de texto*/
+    .aboutUS p {
+        font-size: 15px; /*Tamaño de texto*/
+        text-align: justify; /*Alineacion de texto*/
+    }
+    /*---------------------------------------------------*/
+
+    /*---------------Integrantes del equipo--------------*/
+    /*Contenedor de todos los integrantes*/
+    .AboutUs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /*Contenedor de un integrante*/
+    .member {
+        width: 70%; /*Ancho*/
+    }
+
+    /*-----------------------Imagen*/
+    /*Imagen del integrante*/
+    #member_png {
+        width: 150px; /*Ancho*/
+        height: 150px; /*Largo*/
+    }
+    /*--------------------------------------*/
+    
+    /*---------------------------------------------------*/
+
+
+}
