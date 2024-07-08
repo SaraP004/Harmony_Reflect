@@ -2,8 +2,9 @@ import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import styles from '../styles/page_game.module.css';
 
-import News from './News';
 import About from './About';
+import Wallpapers from './Wallpapers';
+
 
 const Game = () => {
   return (
@@ -19,7 +20,7 @@ const Game = () => {
             </li>
           </ul>
           <ul className={styles.right}>
-            <li className={styles.menuItem}><Link to="/game/news">Noticias</Link></li>
+            <li className={styles.menuItem}><Link to="/game/wallpapers">Fondos</Link></li>
             <li className={styles.menuItem}><Link to="/game/about">Acerca de</Link></li>
             <li className={styles.menuItem}><a href="#account">Cuenta</a></li>
           </ul>
@@ -27,7 +28,7 @@ const Game = () => {
         
         <div className={styles.game_full_container}>
           <Routes>
-            <Route path="news" element={<News />} />
+            <Route path="news" element={<Wallpapers />} />
             <Route path="about" element={<About />} />
             <Route path="/" element={<DefaultContent />} />
           </Routes>

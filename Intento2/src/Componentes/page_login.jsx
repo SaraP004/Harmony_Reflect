@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// Login.js
+>>>>>>> 202c38c24c6b85fee94a87204fea888e6222c181
 import React, { useState } from 'react';
 import loginstyle from '../styles/page_login.module.css';
 
