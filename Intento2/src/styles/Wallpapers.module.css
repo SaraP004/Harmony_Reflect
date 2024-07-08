@@ -1,0 +1,23 @@
+@import url('color_and_general.css');
+@import url('https://fonts.googleapis.com/css2?family=Jaldi:wght@700&display=swap');
+
+.body {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: var(--Soft-green); /*Color de fondo*/
+    font-family: 'Jaldi', sans-serif;
+    height: 100%; /*Espacio*/
+    margin: 0;
+    padding: 0;
+}
+
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    flex-direction: column;/*Direccion en que se mostrara el contenido*/
+    align-items: flex-start; /*Alineacion en el eje Y*/
+    justify-content: center;
+    width: 100%; /*Alineacion en el eje X*/
+    margin: 20px;
+}
+/*------------------------------*/
