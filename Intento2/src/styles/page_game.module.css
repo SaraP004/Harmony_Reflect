@@ -99,7 +99,7 @@
 
 /*----------------------JUEGO EN GENERAL CARGADO POR DEFAULT-------------------*/
 /*Contenedor General de las funciones*/
-.game_full_container {
+.game_full{
     display: flex;
     flex-direction: column;
     align-items: center; /*Alineacion en el eje Y*/
@@ -111,7 +111,10 @@
 /*Contenedor General del Fondos*/
 .bottom  {
     display: flex; 
-    background-color: bisque; 
+    background-image: url('../img/Fondos/FondoMovil_1.png'); /*Fondo del Juego*/
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el fondo */
     width: 200px; /*Largo*/
     height: 449px; /*Ancho*/
     border-radius: 20px; /*Redondeado del contenedor*/
