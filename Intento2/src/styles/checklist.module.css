@@ -1,0 +1,62 @@
+.checklistItem {
+  margin: 10px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 30px;
+  color: #fff; 
+  background-color: #7ED957; 
+  border: 2px solid #000; 
+  border-radius: 25px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex; 
+  align-items: center; 
+}
+
+.button:hover {
+  background-color: #FFBD59; /* Color de fondo al pasar el ratón */
+}
+
+.button img.buttonImage {
+  margin-right: 10px;
+  width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+}
+
+
+.confirmButtons {
+  margin-top: 10px;
+}
+
+.button-confirm-1  {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #000000; 
+  background-color: #5ff77e; 
+  border: 2px solid #5c9b4c; 
+  border-radius: 25px; 
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.button-confirm-2  {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #000000; 
+  background-color: #e15050; 
+  border: 2px solid #ff0000; 
+  border-radius: 25px; 
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.button-confirm:hover {
+  background-color: #ebc357; /* Color de fondo al pasar el ratón */
+}

@@ -111,7 +111,7 @@
 /*Contenedor General del Fondos*/
 .bottom  {
     display: flex; 
-    background-image: url('../img/Fondos/FondoMovil_1.png'); /*Fondo del Juego*/
+
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen en el fondo */
@@ -308,3 +308,96 @@
     }
     /*------------------------------------------------*/
   }
+
+  
+.wallpaper{
+    display: flex; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    border-radius: 30px;
+    text-align: center; 
+    color: var(--Yellow); 
+    padding-right: 0.5px; ;
+    margin: 0px;
+}
+.linkContainer {
+    display: inline-block; /* Asegura que el enlace ocupe solo el espacio necesario */
+    position: relative; /* Posición relativa para alinear el texto */
+    overflow: hidden; /* Evita que el texto se desborde */
+
+}
+
+.imageContainer {
+    position: relative; 
+    /* Posición relativa para alinear el texto */
+}
+
+.imageContainer img {
+    width: 100%; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Ajusta el tamaño de la imagen */
+    display: block; /* Evita espacios no deseados */
+
+}
+
+.downloadText {
+    position: absolute; /* Posición absoluta para alinear el texto */
+    top: 0px; /* Distancia desde arriba */
+    left: 10%; /* Centra horizontalmente */
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    font-size: 18px; /* Tamaño del texto */
+    width: 80%; /* Ancho del texto */
+}
+
+.checklist_options {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    border-style: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 50px;
+    text-align: center;
+    transition: all .15s;
+    background-image: url('../img/Cloud_001S.jpg');
+    touch-action: manipulation;
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; 
+    background-position: center; 
+
+}
+
+  .confirmButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .button-confirm {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+
+  .button-agua {
+    background-color: #5271FF;
+    color: white;
+  }
+
+  #water{
+    margin-left: 10px;
+  }
+  
