@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import styles from '../styles/page_game.module.css';
 import CheckListItem from '../Aplicaciones/CheckListItem';
@@ -10,34 +10,32 @@ import Wallpapers from './Wallpapers'; // Asegúrate de importar Wallpapers
 
 const Game = () => {
   return (
-    <>
-      <div className={styles.body}>
-        <nav className={styles.navbar}>
-          <ul className={styles.left}>
-            <li className={styles.Inicio}>
-              <Link to="/game">
-                <img id={styles.logo} src="/img/LOGO.png" alt="HarmonyReflect Logo" />
-                HarmonyReflect
-              </Link>
-            </li>
-          </ul>
-          <ul className={styles.right}>
-            <li className={styles.menuItem}><Link to="/game/Wallpapers">Wallpapers</Link></li>
-            <li className={styles.menuItem}><Link to="/game/about">Acerca de</Link></li>
-            <li className={styles.menuItem}><a href="#account">Cuenta</a></li>
-          </ul>
-        </nav>
-        
-        <div className={styles.game_full_container}>
-          <Routes>
-            <Route path="news" element={<News />} />
-            <Route path="about" element={<About />} />
-            <Route path="wallpapers" element={<Wallpapers />} /> {/* Ruta para Wallpapers */}
-            <Route path="/" element={<DefaultContent />} />
-          </Routes>
-        </div>
+    <div className={styles.body}>
+      <nav className={styles.navbar}>
+        <ul className={styles.left}>
+          <li className={styles.Inicio}>
+            <Link to="/game">
+              <img id={styles.logo} src="/img/LOGO.png" alt="HarmonyReflect Logo" />
+              HarmonyReflect
+            </Link>
+          </li>
+        </ul>
+        <ul className={styles.right}>
+          <li className={styles.menuItem}><Link to="/game/wallpapers">Wallpapers</Link></li>
+          <li className={styles.menuItem}><Link to="/game/about">Acerca de</Link></li>
+          <li className={styles.menuItem}><a href="#account">Cuenta</a></li>
+        </ul>
+      </nav>
+      
+      <div className={styles.game_full_container}>
+        <Routes>
+          <Route path="news" element={<News />} />
+          <Route path="about" element={<About />} />
+          <Route path="wallpapers" element={<Wallpapers />} /> {/* Ruta para Wallpapers */}
+          <Route path="/" element={<DefaultContent />} />
+        </Routes>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -113,14 +111,9 @@ const DefaultContent = () => {
   return (
     <div className={styles.container}>
       <div className={styles.bottom}>
-        <div className={styles.downloadLink}>
-          <Link to="/game/wallpapers" className={styles.linkContainer}>
-            <div className={styles.imageContainer}>
-              <img className={styles.wallpaper} src="/img/background.jpeg" alt="Fondo de pantalla" />
-              <p className={styles.downloadText}>Descarga nuestros fondos de pantalla</p>
-            </div>
-          </Link>
-        </div>
+        <Link to="/game/wallpapers" className={styles.linkContainer}>
+          <p>¡Disfruta de nuestros fondos de pantalla!</p>
+        </Link>
       </div>
 
       <div className={styles.game_full}>

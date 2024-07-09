@@ -3,72 +3,72 @@
 
 .body {
     font-family: 'Jaldi', sans-serif;
-    margin: 0; /*Relleno*/
-    padding: 0; /*Margen*/
+    margin: 0;
+    padding: 0;
     background-color: var(--Soft-green);
 }
 
 /*------Configuracion de contenedor*/
 .container {
     display: flex;
-    flex-direction: row; /*Direccion en que se mostrara el contenido*/
-    align-items: flex-start; /*Alineacion en el eje Y*/
-    justify-content: center; /*Alineacion en el eje X*/
-    padding: 0; /*Relleno*/
-    margin: 10px; /*Margen*/
+    flex-direction: row; /* Direccion en que se mostrara el contenido */
+    align-items: flex-start; /* Alineacion en el eje Y */
+    justify-content: center; /* Alineacion en el eje X */
+    padding: 0;
+    margin: 10px;
     width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 /*------------------------------*/
 
 /*----------BARRA DE OPCIONES----------*/
 
-/*------Configuracion general*/
-/*Contenedor de Menu*/
+/*------Configuracion general */
+/* Contenedor de Menu */
 .navbar {
     display: flex;
-    width: auto; /*Ancho del Menú*/
-    background-color: var(--Dark-red); /*Color del Menu*/
-    overflow: hidden; /*Evita que se salga el cotenido*/
-    padding: 0; /*Relleno*/
-    align-items: stretch; /*Alineacion en el eje Y*/
+    width: auto; /* Ancho del Menú */
+    background-color: var(--Dark-red); /* Color del Menu */
+    overflow: hidden; /* Evita que se salga el contenido */
+    padding: 0;
+    align-items: stretch; /* Alineacion en el eje Y */
 }
-/*----Control de la lista Ul*/
-/*Muestra Ul*/
+/* Control de la lista Ul */
+/* Muestra Ul */
 .navbar ul {
     display: flex;
-    list-style-type: none; /*No deja ver los guiones*/
-    margin: 0; /*Margen*/
-    padding: 0; /*Relleno*/
+    list-style-type: none; /* No deja ver los guiones */
+    margin: 0;
+    padding: 0;
 }
 
-/*Configuracion de opciones*/
+/* Configuracion de opciones */
 .navbar li a {
     display: block;
-    color: var(--White); /*Color de text0*/
-    text-align: center; /*Alineacion de texto*/
-    padding: 14px 20px; /*Relleno*/
-    text-decoration: none; /*Se quita el decorado*/
+    color: var(--White); /* Color de texto */
+    text-align: center; /* Alineacion de texto */
+    padding: 14px 20px;
+    text-decoration: none; /* Se quita el decorado */
 }
 /*------------------------------*/
 
-/*------Barra a la izquierda*/
+/*------Barra a la izquierda */
 
 .navbar .left {
     display: flex; 
-    align-items: center;  /*Alineacion en el eje Y*/
-    margin-right: auto;   /*Margen Izquierda*/
-    font-size: 20px; /*Tamaño de texto*/
+    align-items: center; /* Alineacion en el eje Y */
+    margin-right: auto; /* Margen izquierda */
+    font-size: 20px; /* Tamaño de texto */
 }
 
 .navbar .left a {
     display: flex;
-    align-items: center; /*Alineacion en el eje Y*/
-    text-decoration: none; /*Se quita el decorado*/ 
-    color: white; /*Color de letra*/
-    font-size: 30px; /*Tamaño de texto*/
+    align-items: center; /* Alineacion en el eje Y */
+    text-decoration: none; /* Se quita el decorado */
+    color: white; /* Color de letra */
+    font-size: 30px; /* Tamaño de texto */
 }
 
-/*Logo en la barra de opciones*/
+/* Logo en la barra de opciones */
 .navbar .left img {
     width: 40px; /* Ajusta el tamaño de la imagen */
     height: 40px; /* Ajusta el tamaño de la imagen */
@@ -76,58 +76,66 @@
     border-radius: 50%; /* Bordes redondeados */
 }
 
-/*------ Barra a la derecha*/
+/*------ Barra a la derecha */
 
-/*Configuracion de botones*/
+/* Configuracion de botones */
 .navbar .right {
     display: flex;
     align-items: center;
     font-size: 20px;
 }
 
-/*Cuando pase el cursos encima*/
+/* Cuando pase el cursor encima */
 .right li a:hover {
-    background-color: var(--Yellow); /*Color de Fondo*/
-    color: var(--Dark-red); /*Color letra*/
+    background-color: var(--Yellow); /* Color de fondo */
+    color: var(--Dark-red); /* Color letra */
 }
 
-/*Logo de Menu*/
+/* Logo de Menu */
 #logo {
-    width: 100px; /*Ancho de imagen*/
-    height: auto; /*Largo de imagen*/
+    width: 100px; /* Ancho de imagen */
+    height: auto; /* Largo de imagen */
 }
 
 /*----------------------JUEGO EN GENERAL CARGADO POR DEFAULT-------------------*/
-/*Contenedor General de las funciones*/
-.game_full{
+/* Contenedor General de las funciones */
+.game_full {
     display: flex;
     flex-direction: column;
-    align-items: center; /*Alineacion en el eje Y*/
-    justify-content: center; /*Alineacion en el eje X*/
-
+    align-items: center; /* Alineacion en el eje Y */
+    justify-content: center; /* Alineacion en el eje X */
 }
 
-/*--------------------OPCION DE FONDOS DE PANTALLA*/
-/*Contenedor General del Fondos*/
-.bottom  {
-    display: flex; 
-
+/*--------------------OPCION DE FONDOS DE PANTALLA */
+/* Contenedor General del Fondos */
+.bottom {
+    display: flex;
+    background-image: url('../img/Fondos/FondoMovil_1.png'); /* Fondo del Juego */
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen en el fondo */
-    width: 200px; /*Largo*/
-    height: 449px; /*Ancho*/
-    border-radius: 20px; /*Redondeado del contenedor*/
-    text-align: center; /*Alineacion de Texto*/
-    color: var(--Yellow); /*Color de Texto*/
-    margin: 16px; /*Margen*/
+    width: 200px; /* Ancho */
+    height: 449px; /* Largo */
+    border-radius: 20px; /* Redondeado del contenedor */
+    text-align: center; /* Alineacion de Texto */
+    color: var(--Yellow); /* Color de Texto */
+    margin: 16px;
 }
 
-/*Configuración de Texto*/
+/* Envio a la Página de Fondos */
+.linkContainer {
+    display: inline-block; /* Asegura que el enlace ocupe solo el espacio necesario */
+    position: relative; /* Posición relativa para alinear el texto */
+    overflow: hidden; /* Evita que el texto se desborde */
+    text-decoration: none;
+    color: var(--Yellow);
+}
+
+/* Configuración de Texto */
 .bottom p {
     font-family: 'Jaldi', sans-serif;
-    font-size: 20px; /*Tamaño de texto*/
-    /*Me permite pornerle borde a las palabras*/
+    font-size: 20px; /* Tamaño de texto */
+    /* Me permite ponerle borde a las palabras */
     text-shadow: 
       -1px -1px 0 var(--Dark-red), /* Sombra en la parte superior izquierda del texto */
       1px -1px 0 var(--Dark-red), /* Sombra en la parte superior derecha del texto */
@@ -136,208 +144,166 @@
 }
 /*--------------------------------------------------*/
 
+/*------------------------------------EL JUEGO */
 
-/*------------------------------------EL JUEGO*/
-
-/*Contenedor de Juego*/
+/* Contenedor de Juego */
 .game {
     display: flex;
-    overflow: hidden; /*Evitar que se salgan los objetos*/
-    background-color: rebeccapurple; /*Color para visualizar el componente*/
-    width: 958px; /*Ancho*/
-    margin: 16px; /*Margen*/
-    border-radius: 20px; /*Redondeado de contenedor*/
+    overflow: hidden; /* Evitar que se salgan los objetos */
+    background-color: rebeccapurple; /* Color para visualizar el componente */
+    width: 958px; /* Ancho */
+    margin: 16px;
+    border-radius: 20px; /* Redondeado de contenedor */
 }
 
-/*Almacenamiento de Fondo y Personaje*/
+/* Almacenamiento de Fondo y Personaje */
 .background_game {
     display: grid; /* Divide el fondo en una cuadrícula */
     grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
     grid-template-rows: repeat(5, 1fr); /* Crea 5 filas de igual tamaño */
     gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
-    width: 449px; /*Ancho*/
-    height: 449px; /*Largo*/
-    background-image: url('../img/background_game.png'); /*Fondo del Juego*/
+    width: 449px; /* Ancho */
+    height: 449px; /* Largo */
+    background-image: url('../img/background_game.png'); /* Fondo del Juego */
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen en el fondo */
-
 }
 
-/*Espacio para los checklist*/
+/* Espacio para los checklist */
 .checklist_options {
     display: grid; /* Divide el fondo en una cuadrícula */
-    grid-template-rows: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
+    grid-template-rows: repeat(5, 1fr); /* Crea 5 filas de igual tamaño */
     gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
-    width: 509px; /*Ancho*/
-    height: 449px; /*Largo*/
-    background-color: var(--White); /*Color del Fondo*/
+    width: 509px; /* Ancho */
+    height: 449px; /* Largo */
+    background-color: var(--White); /* Color del Fondo */
 }
 
-/*Parametros del personaje*/
+/* Parametros del personaje */
 #character {
     display: flex;
-    width: 280px; /*Ancho de personaje*/
-    height: auto; /*Largo de personaje*/
-    grid-column: 2/ span 3; /* Ocupa desde la columna 2 y se extiende por 3 columnas */
-    grid-row: 3 / span 2; /*Ocupa desde la fila 3 y se extiende por 2 filas*/
-    border: none; /* si no quieres borde alrededor del personaje */
+    width: 280px; /* Ancho de personaje */
+    height: auto; /* Largo de personaje */
+    grid-column: 2 / span 3; /* Ocupa desde la columna 2 y se extiende por 3 columnas */
+    grid-row: 3 / span 2; /* Ocupa desde la fila 3 y se extiende por 2 filas */
+    border: none; /* Si no quieres borde alrededor del personaje */
 }
 /*--------------------------------------------------*/
 
-
-/*------------------------------------------TIPS*/
-/*Contenedor de Tips*/  
+/*------------------------------------------TIPS */
+/* Contenedor de Tips */  
 .tips {
     display: flex;
-    align-items: center; /*Alineacion en el eje Y*/
-    justify-content: center; /*Alineacion en el eje X*/
-    background-color: aqua; /*Color de fondo*/
-    width: 958px; /*Ancho de contenedor*/
-    border-radius: 20px; /*Redondeado de contenedor*/
-    margin: 16px; /*Margen*/
+    align-items: center; /* Alineacion en el eje Y */
+    justify-content: center; /* Alineacion en el eje X */
+    background-color: aqua; /* Color de fondo */
+    width: 958px; /* Ancho de contenedor */
+    border-radius: 20px; /* Redondeado de contenedor */
+    margin: 16px;
 }
 
-/*Contenedor de texto e imagen*/
+/* Contenedor de texto e imagen */
 .text_img {
     display: flex;
-    align-items: center; /*Alineacion en el eje Y*/
-    height: 100%; /*Largo de contenedor*/
+    align-items: center; /* Alineacion en el eje Y */
+    height: 100%; /* Largo de contenedor */
     justify-content: space-between; /* Espaciado entre los elementos */
-    text-align: justify; /*Alineacion en el eje X*/
-    margin: 30px; /*Margen*/
+    text-align: justify; /* Alineacion en el eje X */
+    margin: 30px;
 }
 
-/*Contenedor de texto*/
+/* Contenedor de texto */
 .text {
-    height: 70%; /*Espacio que ocupa texto en contenedor*/
+    height: 70%; /* Espacio que ocupa texto en contenedor */
     margin: 5px;
 }
 
-/*Imagen de Tips*/
+/* Imagen de Tips */
 .tips img {
-    width: 100px; /*Ancho de imagen*/
-    height: 100px; /*Largo de imagen*/
+    width: 100px; /* Ancho de imagen */
+    height: 100px; /* Largo de imagen */
     margin: 20px;
 }
 /*--------------------------------------------------*/
 
-/*-----------------------------------------------------------------------------------------------*/
-
-
 /*--------------------------------PANTALLA MOVIL----------------------------------*/
-
 
 @media (max-width: 768px) {
 
-    /*------Configuracion de contenedor*/
+    /*------Configuracion de contenedor */
     .container {
         display: flex;
-        flex-direction: column; /*Direccion en que se mostrara el contenido*/
-        align-items: center; /*Alineacion en el eje Y*/
-        justify-content: center; /*Alineacion en el eje X*/
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
+        justify-content: center; /* Alineacion en el eje X */
     }
     /*------------------------------------*/
 
-
     /*----------------------------BARRA DE OPCIONES-------------------*/
 
-    /*------Configuracion general*/
-    /*Contenedor de Menu*/
+    /*------Configuracion general */
+    /* Contenedor de Menu */
     .navbar {
         display: flex;
-        flex-direction: column; /*Direccion en que se mostrara el contenido*/
-        align-items: center; /*Alineacion en el eje Y*/
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
     }
     /*--------------------------------------*/
 
     /*--------------------------------------------------------------*/
 
     /*----------------------JUEGO EN GENERAL CARGADO POR DEFAULT-------------------*/
-    /*Contenedor General de las funciones*/
+    /* Contenedor General de las funciones */
     .game_full {
         display: flex;
-        flex-direction: column; /*Direccion en que se mostrara el contenido*/
-        align-items: center; /*Alineacion en el eje Y*/
-        justify-content: center; /*Alineacion en el eje X*/
-
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
+        justify-content: center; /* Alineacion en el eje X */
     }
 
-
-    /*--------------------OPCION DE FONDOS DE PANTALLA*/
-    /*Contenedor General del Fondos*/
-    .bottom  {
+    /*--------------------OPCION DE FONDOS DE PANTALLA */
+    /* Contenedor General del Fondos */
+    .bottom {
         display: flex;
-        justify-content: center; /*Alineacion en el eje X*/
-        width: 360px; /*Ancho del contenedor*/
-        height: 200px; /*Largo del contenedor*/
-
+        justify-content: center; /* Alineacion en el eje X */
+        width: 360px; /* Ancho del contenedor */
+        height: 200px; /* Largo del contenedor */
     }
     /*------------------------------------------------*/
 
-    /*------------------------------------EL JUEGO*/
-    /*Contenedor de Juego*/
+    /*------------------------------------EL JUEGO */
+    /* Contenedor de Juego */
     .game {
         display: flex;
-        flex-direction: column; /*Direccion en que se mostrara el contenido*/
-        width: 360px; /*Ancho*/
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        width: 360px; /* Ancho */
     }
 
-    /*Almacenamiento de Fondo y Personaje*/
+    /* Almacenamiento de Fondo y Personaje */
     .background_game {
-        width: 360px; /*Ancho*/
-        height: 360px; /*Alto*/
+        width: 360px; /* Ancho */
+        height: 360px; /* Alto */
     }
 
-    /*Parametros del personaje*/
+    /* Parametros del personaje */
     #character {
-        width: 225px; /*Ancho de personaje*/
-        height: auto; /*Largo de personaje*/
+        width: 225px; /* Ancho de personaje */
+        height: auto; /* Largo de personaje */
     }
 
-    /*Espacio para los checklist*/
+    /* Espacio para los checklist */
     .checklist_options {
-        height: 360px; /*Alto*/
-        width: 360px;; /*Ancho*/
+        height: 360px; /* Alto */
+        width: 360px; /* Ancho */
     }
 
-    /*------------------------------------------TIPS*/
-    /*Contenedor de Tips*/ 
+    /*------------------------------------------TIPS */
+    /* Contenedor de Tips */ 
     .tips {
-        width: 360px; /*Ancho de contenedor*/
+        width: 360px; /* Ancho de contenedor */
     }
     /*------------------------------------------------*/
-  }
-
-  
-.wallpaper{
-    display: flex; 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; 
-    border-radius: 30px;
-    text-align: center; 
-    color: var(--Yellow); 
-    padding-right: 0.5px; ;
-    margin: 0px;
-}
-.linkContainer {
-    display: inline-block; /* Asegura que el enlace ocupe solo el espacio necesario */
-    position: relative; /* Posición relativa para alinear el texto */
-    overflow: hidden; /* Evita que el texto se desborde */
-
-}
-
-.imageContainer {
-    position: relative; 
-    /* Posición relativa para alinear el texto */
-}
-
-.imageContainer img {
-    width: 100%; /* Ajusta el tamaño de la imagen */
-    height: auto; /* Ajusta el tamaño de la imagen */
-    display: block; /* Evita espacios no deseados */
-
 }
 
 .downloadText {
@@ -353,7 +319,6 @@
 
 .checklist_options {
     display: grid;
-    flex-direction: row;
     justify-content: center;
     border-style: none;
     box-sizing: border-box;
@@ -369,16 +334,15 @@
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
     background-repeat: no-repeat; 
     background-position: center; 
-
 }
 
-  .confirmButtons {
+.confirmButtons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
-  }
-  
-  .button-confirm {
+}
+
+.button-confirm {
     background-color: #4CAF50; 
     border: none;
     color: white;
@@ -390,14 +354,13 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
-  }
+}
 
-  .button-agua {
+.button-agua {
     background-color: #5271FF;
     color: white;
-  }
+}
 
-  #water{
+#water {
     margin-left: 10px;
-  }
-  
+}
