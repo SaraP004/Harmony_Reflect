@@ -173,7 +173,7 @@
 /* Espacio para los checklist */
 .checklist_options {
     display: grid; /* Divide el fondo en una cuadrícula */
-    grid-template-rows: repeat(5, 1fr); /* Crea 5 filas de igual tamaño */
+    grid-template-rows: repeat(4, 1fr); /* Crea 5 filas de igual tamaño */
     gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
     width: 509px; /* Ancho */
     height: 449px; /* Largo */
@@ -267,8 +267,8 @@
     .bottom {
         display: flex;
         justify-content: center; /* Alineacion en el eje X */
-        width: 360px; /* Ancho del contenedor */
-        height: 200px; /* Largo del contenedor */
+        width: 260px; /* Ancho del contenedor */
+        height: 100px; /* Largo del contenedor */
     }
     /*------------------------------------------------*/
 
@@ -277,33 +277,35 @@
     .game {
         display: flex;
         flex-direction: column; /* Direccion en que se mostrara el contenido */
-        width: 360px; /* Ancho */
+        width: 260px; /* Ancho */
     }
 
     /* Almacenamiento de Fondo y Personaje */
     .background_game {
-        width: 360px; /* Ancho */
-        height: 360px; /* Alto */
+        width: 260px; /* Ancho */
+        height: 260px; /* Alto */
     }
 
     /* Parametros del personaje */
     #character {
-        width: 225px; /* Ancho de personaje */
+        width: 160px; /* Ancho de personaje */
         height: auto; /* Largo de personaje */
     }
 
     /* Espacio para los checklist */
     .checklist_options {
-        height: 360px; /* Alto */
-        width: 360px; /* Ancho */
+        height: auto; /* Alto */
+        width: 260px; /* Ancho */
     }
 
     /*------------------------------------------TIPS */
     /* Contenedor de Tips */ 
     .tips {
-        width: 360px; /* Ancho de contenedor */
+        width: 260px; /* Ancho de contenedor */
     }
     /*------------------------------------------------*/
+
+    
 }
 
 .downloadText {

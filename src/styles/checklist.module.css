@@ -60,3 +60,10 @@
 .button-confirm:hover {
   background-color: #ebc357; /* Color de fondo al pasar el ratón */
 }
+
+/*------------------------PANTALLA MOVIL------------------*/
+@media (max-width: 480px){
+  .button {
+    font-size: 20px;
+  }
+}
