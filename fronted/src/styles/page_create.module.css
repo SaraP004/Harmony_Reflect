@@ -65,7 +65,7 @@
 }
 
 /*Requerimientos texto*/
-#username, #email, #password {
+#username, #email, #password, #age {
     font-size: 20px;  /*Tamaño de letra*/ 
 }
 
@@ -97,8 +97,8 @@
     align-items: center;
     justify-content: center;
     /*----------------------------------*/
-    width: 50%; /*Ancho*/
-    height: 90px; /*Largo*/
+    width: 40%; /*Ancho*/
+    height: 50px; /*Largo*/
     border-radius: 50px; /*Redondeado*/
     font-size: 30px; /*Tamaño de letra*/
     font-weight: bold; /*Negrita de letra*/
