@@ -50,7 +50,7 @@
 .headline{
     display: flex; /*Alineo al centro automáticamente*/
     text-align: center; /*Posición de texto*/
-    font-size: 35px; /*Tamaño de letra*/
+    font-size: 36px; /*Tamaño de letra*/
     color: var(--Dark-red); /*Color de texto*/
     margin-bottom: 10px; /*Margen Abajo*/
 }
