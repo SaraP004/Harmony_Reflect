@@ -67,7 +67,7 @@ const Create = () => {
           <div className={styles.form}>
             <form onSubmit={handleSubmit}>
               <div className={styles.tittle}>
-                <b className={styles.headline}>¡NOS ALEGRA TANTO QUE QUIERAS UNIRTE!</b>
+                <b className={styles.headline}>¡Unete a nuestra hermosa comunidad!</b>
               </div>
               <div className={styles.labels}>
                 <label id={styles.username} htmlFor="nombre_completo">Nombre Completo</label>
@@ -107,6 +107,16 @@ const Create = () => {
                   id="contraseña" 
                   name="contraseña" 
                   value={formData.contraseña} 
+                  onChange={handleChange} 
+                  required 
+                />
+                <label id={styles.age} htmlFor="contraseña">Edad</label>
+                <input 
+                  className={styles.inputField} 
+                  type="text" 
+                  id="edad" 
+                  name="edad" 
+                  value={formData.contraseña} /*Cambien esto para la base*/
                   onChange={handleChange} 
                   required 
                 />
