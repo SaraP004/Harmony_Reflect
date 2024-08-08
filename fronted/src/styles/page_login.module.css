@@ -67,12 +67,13 @@
 }
 
 /*Requerimientos texto*/
-#username, #password {
+#username, #password, #type {
     font-size: 20px;  /*Tamaño de letra*/ 
 }
 
+
 /*Espacios para llenar formulario*/
-input {
+.inputField {
     display: flex;
     width: 100%; /*Ancho*/
     height: 47px; /*Largo*/
@@ -81,6 +82,7 @@ input {
     font-size: 20px; /*Tamaño de letra*/
     color: var(--Blue-navy); /*Color de texto*/
 }
+/*----------------------------------*/
 
 /*------ Configuracion botones*/
 /*Configuración de contenedor*/
