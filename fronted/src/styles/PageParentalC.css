@@ -1,0 +1,238 @@
+@import url('color_and_general.css');
+
+.body {
+    display: flex;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    background-color: var(--Soft-Blue); /*Color de fondo*/
+    font-family: 'Jaldi', sans-serif;
+    height: 100vh; /*Espacio*/
+}
+
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+}
+/*------------------------------*/
+
+/*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------*/
+/*------Configuracion de contenedor*/
+.space {
+    display: flex;
+    align-items: center; /*Alineacion en el eje Y*/
+    justify-content: center; /*Alineacion en el eje X*/
+    width: 55%; /*Ancho Espacio*/
+    margin: 20px; /*Margen*/
+}
+/*------------------------------*/
+
+
+/*-------------------Configuracion de  Formulario*/
+/*Contenedor*/
+.form {
+    display: flex;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    background-color: var(--White); /*Color de fondo*/
+    border-radius: 20px; /*Redondeado*/
+
+    /*---Configuración de Anchura PADDING*/
+    padding-top: 10px; /*Arriba*/
+    padding-bottom: 10px; /*Abajo*/
+    padding-left: 30px; /*Izquierda*/
+    padding-right: 30px; /*Derecha*/
+    /*----------------------------------*/
+}
+
+
+/*Titulo*/
+.headline{
+    display: flex; /*Alineo al centro automáticamente*/
+    text-align: center; /*Posición de texto*/
+    font-size: 35px; /*Tamaño de letra*/
+    color: var(--Dark-red); /*Color de texto*/
+    margin-bottom: 10px; /*Margen Abajo*/
+}
+
+/*-------Requisitos de Usuario*/
+/*Contenedor de Labels*/
+.labels {
+    display: flex;
+    flex-direction: column; /*Direccion en que se mostrara el contenido*/
+    align-items: flex-start; /*Alineacion en el eje Y*/
+    
+}
+
+/*Cuadricula*/
+.asked_options {
+    display: flex; /* Divide el fondo en una cuadrícula */
+    flex-direction: row-reverse;
+    width: 50px;
+}
+
+/*Requerimientos texto*/
+#fullname, #username, #email, #password, #type {
+    font-size: 20px;  /*Tamaño de letra*/ 
+}
+
+/*Espacios para llenar formulario*/
+.inputField {
+    display: flex;
+    width: 100%; /*Ancho*/
+    height: 47px; /*Largo*/
+    border-radius: 10px; /*Redondeado*/
+    margin-bottom: 20px; /*Margen Abajo*/
+    font-size: 20px; /*Tamaño de letra*/
+    color: var(--Blue-navy); /*Color de texto*/
+}
+/*----------------------------------*/
+
+/*------ Configuracion botones*/
+/*Configuración de contenedor*/
+.buttons {
+    display: flex; 
+    justify-content: center;   
+    margin-top: 2%; 
+}
+
+/*Configuración de botones*/
+.button {
+    display: flex;
+    border: none;
+    /*Alineacion de contenido de botones*/
+    align-items: center;
+    justify-content: center;
+    /*----------------------------------*/
+    width: 45%; /*Ancho*/
+    height: 50px; /*Largo*/
+    border-radius: 50px; /*Redondeado*/
+    font-size: 25px; /*Tamaño de letra*/
+    font-weight: bold; /*Negrita de letra*/
+    margin: 10px; /*Margen*/
+    color: var(--White); /*Color de texto*/
+    background-color: var(--Yellow); /*Color de botón*/
+}
+/*---Color de botones cuando pasa el cursor*/
+/*Bototn de Aceptar*/
+#AcceptButton:hover {
+    border: 4px solid var(--Green); /*Color de borde de botón*/
+    color: var(--Green); /*Color de texto*/
+}
+/*Bototn de Cancelar*/
+#CancelButton:hover {
+    border: 4px solid var(--Red); /*Color de borde de botón*/
+    color: var(--Red); /*Color de texto*/
+}
+/*----------------------------------------*/
+
+/*--------------------------------------------*/
+/*--------------------------------------------------*/
+
+/*------------------------------------------------------------------------*/
+
+
+
+/*------------------------LADO DERECHO DE LA PÁGINA-------------------------*/
+/*-------Configuracion para la Imagen*/
+/*Contenedor de Imagen*/
+.imagen {
+    display: flex;
+    justify-content: center; /*Alineacion en el eje X*/
+    align-items: center; /*Alineacion en el eje Y*/
+    width: 40%; /*Ancho de contenedor*/
+    margin: 50px; /*Establecer margen*/
+}
+
+/*Imagen*/
+.registra_img {
+    width: 550px; /*Ancho de Imagen*/
+    height: auto; /*Largo de Imagen*/
+}
+
+/*------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+
+/*------------------------PANTALLA MOVIL------------------*/
+@media (max-width: 480px){
+
+    .body {
+        height: 100%;
+    }
+
+    /*------Configuracion de contenedor*/
+    .container {
+        display: flex;
+        flex-direction: column-reverse; /*Direccion en que se mostrara el contenido*/
+        margin: 10px;
+    }
+    /*------------------------------*/
+
+    /*------------------------LADO IZQUIERDO DE LA PÁGINA-------------------*/
+
+    /*-------------------Configuracion de  Formulario*/
+    /*------Configuracion de contenedor*/
+    .space {
+        width: 90%; /*Ancho Espacio*/
+    }
+    /*------------------------------*/
+
+    /*Titulo*/
+    .headline{
+        font-size: 30px; /*Tamaño de letra*/
+    }
+    /*----------------------------------------------*/
+
+    /*------------------------ Configuracion botones*/
+    /*Configuración de botones*/
+    .button {
+        font-size: 20px; /*Tamaño de letra*/ 
+    }
+    /*--------------------------------------------------------------------------*/
+    
+
+    /*------------------------LADO DERECHO DE LA PÁGINA-------------------------*/
+    /*-------Configuracion para la Imagen*/
+    /*Imagen*/
+    .registra_img {
+        width: 200px; /*Ancho de Imagen*/
+        height: auto; /*Largo de Imagen*/
+    }
+    /*------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+}
+
+
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .messageBox {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .closeButton {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
