@@ -22,7 +22,7 @@ const OptionCharacters = () => {
 
     const handleSelectClick = () => {
         if (selectedCharacter) {
-            window.location.href = '/login';
+            window.location.href = '/login'; // Asegúrate de que esta ruta sea correcta
         }
     };
 
