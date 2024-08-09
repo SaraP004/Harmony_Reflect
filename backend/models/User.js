@@ -7,7 +7,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'HarmonyReflect',
-  password: '10',
+  password: '1234',
   port: 5432,
 });
 
@@ -30,12 +30,12 @@ const verificarUsuario = async (nombre_usuario, contraseña) => {
 };
 
 const crearUsuario = async (usuario) => {
-  const { nombre_completo, nombre_usuario, correo, contraseña } = usuario;
+  const { nombre_completo, nombre_usuario, correo, contraseña, edad } = usuario;
   try {
     const hashedPassword = await bcrypt.hash(contraseña, 10);
     const result = await pool.query(
-      'INSERT INTO Usuario (nombre_completo, nombre_usuario, correo, contraseña) VALUES ($1, $2, $3, $4) RETURNING *',
-      [nombre_completo, nombre_usuario, correo, hashedPassword]
+      'INSERT INTO Usuario (nombre_completo, nombre_usuario, correo, contraseña, edad) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [nombre_completo, nombre_usuario, correo, hashedPassword, edad]
     );
     return result.rows[0];
   } catch (error) {

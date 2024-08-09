@@ -48,7 +48,7 @@ const Create = () => {
   const closeMessage = () => {
     setShowMessage(false);
     if (message === 'Registro exitoso. Ahora puedes iniciar sesión.') {
-      window.location.href = '/login'; // Redirige a la página de inicio de sesión
+      window.location.href = '/imageCharacters';
     }
   };
 
@@ -116,7 +116,7 @@ const Create = () => {
                   type="text" 
                   id="edad" 
                   name="edad" 
-                  value={formData.contraseña} /*Cambien esto para la base*/
+                  value={formData.edad} /*Cambien esto para la base*/
                   onChange={handleChange} 
                   required 
                 />

@@ -5,6 +5,7 @@ import Menu from './Componentes/page_menu';
 import Create from './Componentes/page_create';
 import Login from './Componentes/page_login';
 import Game from './Componentes/page_game';
+import OptionCharacters from './Componentes/PageCharacters';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Menu />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/imageCharacters" element={<OptionCharacters />} />
         <Route path="/login" element={<Login />} />
         <Route path="/game/*" element={<Game />} />
       </Routes>
