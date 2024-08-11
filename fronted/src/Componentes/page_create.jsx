@@ -11,6 +11,7 @@ const Create = () => {
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -21,14 +22,6 @@ const Create = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    // Verificar edad
-    if (parseInt(formData.edad) < 18) {
-      setMessage('Eres menor de 18 años. Serás redirigido a la página de control parental.');
-      setShowMessage(true);
-      return;
-    }
-
     try {
       const response = await fetch('http://localhost:3000/api/create', {
         method: 'POST',
@@ -44,7 +37,14 @@ const Create = () => {
       
       const data = await response.json();
       console.log('Usuario registrado:', data);
-      setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+
+      if (formData.edad < 18) {
+        setMessage('Eres menor de edad. Debes pasar por el control parental.');
+        setRedirectUrl('/PageParentalC');
+      } else {
+        setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+        setRedirectUrl('/login');
+      }
       setShowMessage(true);
     } catch (error) {
       console.error('Error al registrar:', error);
@@ -55,11 +55,7 @@ const Create = () => {
 
   const closeMessage = () => {
     setShowMessage(false);
-    if (message === 'Registro exitoso. Ahora puedes iniciar sesión.') {
-      window.location.href = '/imageCharacters'; // Redirige a la página de inicio de sesión
-    } else if (message === 'Eres menor de 18 años. Serás redirigido a la página de control parental.') {
-      window.location.href = '/pageParentalC'; // Redirige a la página de control parental
-    }
+    window.location.href = redirectUrl; // Redirige a la página adecuada
   };
 
   return (

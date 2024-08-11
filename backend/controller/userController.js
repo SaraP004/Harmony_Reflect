@@ -1,6 +1,5 @@
 import { crearUsuario as crearUsuarioModel, verificarUsuario } from '../models/User.js';
 
-// Función para iniciar sesión
 const loginUsuario = async (req, res) => {
   const { nombre_usuario, contraseña } = req.body;
   try {
@@ -16,7 +15,6 @@ const loginUsuario = async (req, res) => {
   }
 };
 
-// Función para crear usuario
 const crearUsuario = async (req, res) => {
   try {
     const newUsuario = await crearUsuarioModel(req.body);
