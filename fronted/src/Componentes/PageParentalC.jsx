@@ -3,6 +3,7 @@ import styles from '../styles/PageParentalC.module.css';
 
 const ParentalControl = () => {
   const [formData, setFormData] = useState({
+    nombre_completo: '',
     username: '',
     email: '',
     password: ''
@@ -37,7 +38,7 @@ const ParentalControl = () => {
   const closeMessage = () => {
     setShowMessage(false);
     if (message === 'Registro exitoso. Ahora puedes iniciar sesión.') {
-      window.location.href = '/login';
+      window.location.href = '/imageCharacters';
     }
   };
 
@@ -59,8 +60,8 @@ const ParentalControl = () => {
                 <b className={styles.headline}>¡Oh vaya! ¡Eres muy pequeño!</b>
               </div>
               <div className={styles.labels}>
-              <label id={styles.fullname} htmlFor="fullname">Nombre Completo</label>
-              <input className={styles.inputField} type="text" id="fullname" name="fullname" value={formData.username} onChange={handleChange} required />
+              <label id={styles.nombre_completo} htmlFor="nombre_completo">Nombre Completo</label>
+              <input className={styles.inputField} type="text" id="nombre_completo" name="nombre_completo" value={formData.nombre_completo} onChange={handleChange} required />
                 <label id={styles.username} htmlFor="username">Nombre de Usuario</label>
                 <input className={styles.inputField} type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
                 <label id={styles.email} htmlFor="email">Correo electrónico</label>
