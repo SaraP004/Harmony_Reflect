@@ -6,10 +6,12 @@ const Create = () => {
     nombre_completo: '',
     nombre_usuario: '',
     correo: '',
-    contraseña: ''
+    contraseña: '',
+    edad: '' 
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+  const [redirectUrl, setRedirectUrl] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -20,7 +22,6 @@ const Create = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
     try {
       const response = await fetch('http://localhost:3000/api/create', {
         method: 'POST',
@@ -28,7 +29,7 @@ const Create = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      });      
+      });
       
       if (!response.ok) {
         throw new Error('Error al registrar');
@@ -36,7 +37,14 @@ const Create = () => {
       
       const data = await response.json();
       console.log('Usuario registrado:', data);
-      setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+
+      if (formData.edad < 18) {
+        setMessage('Eres menor de edad. Debes pasar por el control parental.');
+        setRedirectUrl('/PageParentalC');
+      } else {
+        setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+        setRedirectUrl('/login');
+      }
       setShowMessage(true);
     } catch (error) {
       console.error('Error al registrar:', error);
@@ -47,9 +55,7 @@ const Create = () => {
 
   const closeMessage = () => {
     setShowMessage(false);
-    if (message === 'Registro exitoso. Ahora puedes iniciar sesión.') {
-      window.location.href = '/login'; // Redirige a la página de inicio de sesión
-    }
+    window.location.href = redirectUrl; // Redirige a la página adecuada
   };
 
   return (
@@ -58,7 +64,7 @@ const Create = () => {
         <div className={styles.overlay}>
           <div className={styles.messageBox}>
             <p>{message}</p>
-            <button className={styles.closeButton} onClick={closeMessage}>Cerrar</button>
+            <button className={styles.closeButton} onClick={closeMessage}>Aceptar</button>
           </div>
         </div>
       )}
@@ -67,7 +73,7 @@ const Create = () => {
           <div className={styles.form}>
             <form onSubmit={handleSubmit}>
               <div className={styles.tittle}>
-                <b className={styles.headline}>¡Unete a nuestra hermosa comunidad!</b>
+                <b className={styles.headline}>¡Únete a nuestra hermosa comunidad!</b>
               </div>
               <div className={styles.labels}>
                 <label id={styles.username} htmlFor="nombre_completo">Nombre Completo</label>
@@ -110,13 +116,13 @@ const Create = () => {
                   onChange={handleChange} 
                   required 
                 />
-                <label id={styles.age} htmlFor="contraseña">Edad</label>
+                <label id={styles.age} htmlFor="edad">Edad</label>
                 <input 
                   className={styles.inputField} 
-                  type="text" 
+                  type="number" 
                   id="edad" 
                   name="edad" 
-                  value={formData.contraseña} /*Cambien esto para la base*/
+                  value={formData.edad} 
                   onChange={handleChange} 
                   required 
                 />

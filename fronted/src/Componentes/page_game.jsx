@@ -43,8 +43,8 @@ const DefaultContent = () => {
   // Objeto que contiene las diferentes imágenes del personaje según su estado
   const characterImages = {
     default: [
-      '/img/Canela/animation_happy/happy1.png',
-      '/img/Canela/animation_happy/happy2.png',
+      '/img/animation_happy/happy1.png',
+      '/img/animation_happy/happy2.png',
     ],
     completedOne: [
       '/img/Canela/animation_happy/happy1.png',

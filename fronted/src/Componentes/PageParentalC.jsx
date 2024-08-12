@@ -3,9 +3,11 @@ import styles from '../styles/PageParentalC.module.css';
 
 const ParentalControl = () => {
   const [formData, setFormData] = useState({
+    nombre_completo: '',
     username: '',
     email: '',
-    password: ''
+    password: '',
+    relacion: '' // Añadido para capturar la relación
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
@@ -17,27 +19,35 @@ const ParentalControl = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { username, email, password } = formData;
+    try {
+      const response = await fetch('http://localhost:3000/api/control-parental', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Error al registrar el control parental');
+      }
 
-    const existingUsers = JSON.parse(localStorage.getItem('users')) || {};
-    if (existingUsers[username]) {
-      setMessage('El nombre de usuario ya está tomado.');
+      const data = await response.json();
+      setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
       setShowMessage(true);
-      return;
+    } catch (error) {
+      console.error('Error al registrar control parental:', error);
+      setMessage('Error al registrar el control parental.');
+      setShowMessage(true);
     }
-
-    existingUsers[username] = { email, password };
-    localStorage.setItem('users', JSON.stringify(existingUsers));
-    setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
-    setShowMessage(true);
   };
 
   const closeMessage = () => {
     setShowMessage(false);
     if (message === 'Registro exitoso. Ahora puedes iniciar sesión.') {
-      window.location.href = '/login';
+      window.location.href = '/imageCharacters'; // Redirige a la página de inicio o una página específica
     }
   };
 
@@ -47,7 +57,7 @@ const ParentalControl = () => {
         <div className={styles.overlay}>
           <div className={styles.messageBox}>
             <p>{message}</p>
-            <button className={styles.closeButton} onClick={closeMessage}>Cerrar</button>
+            <button className={styles.closeButton} onClick={closeMessage}>Aceptar</button>
           </div>
         </div>
       )}
@@ -59,23 +69,31 @@ const ParentalControl = () => {
                 <b className={styles.headline}>¡Oh vaya! ¡Eres muy pequeño!</b>
               </div>
               <div className={styles.labels}>
-              <label id={styles.fullname} htmlFor="fullname">Nombre Completo</label>
-              <input className={styles.inputField} type="text" id="fullname" name="fullname" value={formData.username} onChange={handleChange} required />
+                <label id={styles.nombre_completo} htmlFor="nombre_completo">Nombre Completo</label>
+                <input className={styles.inputField} type="text" id="nombre_completo" name="nombre_completo" value={formData.nombre_completo} onChange={handleChange} required />
                 <label id={styles.username} htmlFor="username">Nombre de Usuario</label>
                 <input className={styles.inputField} type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
                 <label id={styles.email} htmlFor="email">Correo electrónico</label>
                 <input className={styles.inputField} type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
                 <label id={styles.password} htmlFor="password">Contraseña</label>
                 <input className={styles.inputField} type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
-                <label id={styles.type} htmlFor="type">Relación con Usuario</label>
-                <form  action="#">
-                    <select name="opciones" id="opciones">
-                        <option value="opcion1">Padre</option>
-                        <option value="opcion2">Madre</option>
-                        <option value="opcion3">Tutor Legal</option>
-                    </select>
-                    </form>
-                
+                <label id={styles.relacion} htmlFor="relacion">Relación con Usuario</label>
+                <select 
+                  id="relacion" 
+                  name="relacion" 
+                  value={formData.relacion} 
+                  onChange={handleChange} 
+                  required 
+                  style={{
+                    fontSize: '16px', // Ajusta el tamaño de la fuente según tus necesidades
+                    padding: '10px' // Agrega un poco de espacio interno para hacerlo más visible
+                  }}
+                >
+                  <option value="">Seleccione una opción</option>
+                  <option value="Padre">Padre</option>
+                  <option value="Madre">Madre</option>
+                  <option value="Tutor Legal">Tutor Legal</option>
+                </select>
               </div>
               <div className={styles.buttons}>
                 <button className={styles.button} id={styles.AcceptButton} type="submit">

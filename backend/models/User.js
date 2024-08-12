@@ -13,10 +13,9 @@ const pool = new Pool({
 
 const verificarUsuario = async (nombre_usuario, contraseña) => {
   try {
-    const result = await pool.query('SELECT * FROM Usuario WHERE nombre_usuario = $1', [nombre_usuario]);
-
+    const result = await pool.query('SELECT * FROM Usuario WHERE Nombre_Usuario = $1', [nombre_usuario]);
     if (result.rows.length > 0) {
-      const hashedPassword = result.rows[0].contraseña;
+      const hashedPassword = result.rows[0].Contraseña;
       const match = await bcrypt.compare(contraseña, hashedPassword);
       if (match) {
         return result.rows[0];
@@ -30,12 +29,12 @@ const verificarUsuario = async (nombre_usuario, contraseña) => {
 };
 
 const crearUsuario = async (usuario) => {
-  const { nombre_completo, nombre_usuario, correo, contraseña } = usuario;
+  const { nombre_completo, nombre_usuario, correo, contraseña, edad } = usuario;
   try {
     const hashedPassword = await bcrypt.hash(contraseña, 10);
     const result = await pool.query(
-      'INSERT INTO Usuario (nombre_completo, nombre_usuario, correo, contraseña) VALUES ($1, $2, $3, $4) RETURNING *',
-      [nombre_completo, nombre_usuario, correo, hashedPassword]
+      'INSERT INTO Usuario (Nombre_Completo, Nombre_Usuario, Correo, Contraseña, Edad) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [nombre_completo, nombre_usuario, correo, hashedPassword, edad]
     );
     return result.rows[0];
   } catch (error) {
