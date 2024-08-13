@@ -4,7 +4,7 @@ import loginstyle from '../styles/page_login.module.css';
 const Login = () => {
   const [credentials, setCredentials] = useState({
     nombre_usuario: '',
-    contraseña: ''
+    contraseña: '',
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
@@ -20,8 +20,6 @@ const Login = () => {
     e.preventDefault();
     const { nombre_usuario, contraseña } = credentials;
 
-    console.log('Datos enviados:', { nombre_usuario, contraseña });
-
     try {
       const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
@@ -32,8 +30,6 @@ const Login = () => {
       });
 
       const data = await response.json();
-      console.log('Respuesta del servidor:', data);
-
       if (response.ok) {
         setMessage('Inicio de sesión exitoso.');
         setShowMessage(true);
@@ -51,7 +47,7 @@ const Login = () => {
   const closeMessage = () => {
     setShowMessage(false);
     if (message === 'Inicio de sesión exitoso.') {
-      window.location.href = '/game'; // Redirige a la página del juego
+      window.location.href = '/imageCharacters'; // Redirige a la página del juego
     }
   };
 
@@ -80,14 +76,6 @@ const Login = () => {
                 <input className={loginstyle.inputField} type="text" id="nombre_usuario" name="nombre_usuario" value={credentials.nombre_usuario} onChange={handleChange} required />
                 <label id={loginstyle.password} htmlFor="contraseña">Contraseña</label>
                 <input className={loginstyle.inputField} type="password" id="contraseña" name="contraseña" value={credentials.contraseña} onChange={handleChange} required />
-                <label id={loginstyle.type} htmlFor="type">Se quiere ingresar como</label>
-                <form className={loginstyle.inputField} action="#">
-                    <select name="opciones" id="opciones">
-                        <option value="opcion1">Padre</option>
-                        <option value="opcion2">Usuario</option>
-                        <option value="opcion3">Administrador</option>
-                    </select>
-                  </form>
               </div>
               <div className={loginstyle.buttons}>
                 <button className={loginstyle.button} id={loginstyle.CancelButton} type="button" onClick={() => window.location.href = '/'}>
