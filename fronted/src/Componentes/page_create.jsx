@@ -40,7 +40,7 @@ const Create = () => {
 
       if (formData.edad < 18) {
         setMessage('Eres menor de edad. Debes pasar por el control parental.');
-        setRedirectUrl('/PageParentalC');
+        setRedirectUrl('/imageCharacters');
       } else {
         setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
         setRedirectUrl('/login');
