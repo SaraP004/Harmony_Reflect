@@ -47,7 +47,7 @@ const Login = () => {
   const closeMessage = () => {
     setShowMessage(false);
     if (message === 'Inicio de sesión exitoso.') {
-      window.location.href = '/imageCharacters'; // Redirige a la página del juego
+      window.location.href = '/game';
     }
   };
 
