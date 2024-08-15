@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import loginstyle from '../styles/page_login.module.css';
 
 const Login = () => {
@@ -8,11 +9,14 @@ const Login = () => {
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+  const [navigateToGame, setNavigateToGame] = useState(false);
+  const [characterName, setCharacterName] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials({
       ...credentials,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -30,9 +34,12 @@ const Login = () => {
       });
 
       const data = await response.json();
+
       if (response.ok) {
         setMessage('Inicio de sesión exitoso.');
+        setCharacterName(data.personaje);
         setShowMessage(true);
+        setNavigateToGame(true);
       } else {
         setMessage(data.error || 'Nombre de usuario o contraseña incorrectos');
         setShowMessage(true);
@@ -46,8 +53,8 @@ const Login = () => {
 
   const closeMessage = () => {
     setShowMessage(false);
-    if (message === 'Inicio de sesión exitoso.') {
-      window.location.href = '/game';
+    if (navigateToGame) {
+      navigate('/game', { state: { character: characterName } });
     }
   };
 
