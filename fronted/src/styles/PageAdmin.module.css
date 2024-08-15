@@ -1,0 +1,272 @@
+.body {
+    font-family: 'Jaldi', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--White);
+    height: 100vh; /*Espacio*/
+}
+
+/*------Configuracion de contenedor*/
+.container {
+    display: flex;
+    flex-direction: column; /* Direccion en que se mostrara el contenido */
+    align-items: center; /* Alineacion en el eje Y */
+    justify-content: flex-start; /* Alineacion en el eje X */
+    padding: 0;
+    margin: 0;
+    background-color: var(--White);
+    
+}
+/*------------------------------*/
+
+/*----------BARRA DE OPCIONES----------*/
+
+/*------Configuracion general */
+/* Contenedor de Menu */
+.navbar {
+    display: flex;
+    width: auto; /* Ancho del Menú */
+    background-color: var(--Blue-navy); /* Color del Menu */
+    overflow: hidden; /* Evita que se salga el contenido */
+    padding: 0;
+    align-items: stretch; /* Alineacion en el eje Y */
+}
+/* Control de la lista Ul */
+/* Muestra Ul */
+.navbar ul {
+    display: flex;
+    list-style-type: none; /* No deja ver los guiones */
+    margin: 0;
+    padding: 0;
+}
+
+/* Configuracion de opciones */
+.navbar li a {
+    display: block;
+    color: var(--White); /* Color de texto */
+    text-align: center; /* Alineacion de texto */
+    padding: 14px 20px;
+    text-decoration: none; /* Se quita el decorado */
+}
+/*------------------------------*/
+
+/*------Barra a la izquierda */
+
+.navbar .left {
+    display: flex; 
+    align-items: center; /* Alineacion en el eje Y */
+    margin-right: auto; /* Margen izquierda */
+    font-size: 20px; /* Tamaño de texto */
+}
+
+.navbar .left a {
+    display: flex;
+    align-items: center; /* Alineacion en el eje Y */
+    text-decoration: none; /* Se quita el decorado */
+    color: white; /* Color de letra */
+    font-size: 30px; /* Tamaño de texto */
+}
+
+/* Logo en la barra de opciones */
+.navbar .left img {
+    width: 40px; /* Ajusta el tamaño de la imagen */
+    height: 40px; /* Ajusta el tamaño de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    border-radius: 50%; /* Bordes redondeados */
+}
+
+/*------ Barra a la derecha */
+
+/* Configuracion de botones */
+.navbar .right {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Cuando pase el cursor encima */
+.right li a:hover {
+    background-color: var(--Soft-Blue); /* Color de fondo */
+    color: var(--White); /* Color letra */
+}
+
+/* Logo de Menu */
+#logo {
+    width: 100px; /* Ancho de imagen */
+    height: auto; /* Largo de imagen */
+}
+
+.table {
+    margin: 10px;
+    padding: 20px;
+}
+
+
+th {
+    font-size: 19px;
+    background-color: var(--Soft-Blue);
+    color: var(--White);
+    height: auto; 
+}
+
+.button_delete {
+    font-size: 15px;
+    background-color: var(--Dark-red);
+    color: var(--White);
+}
+
+.button_delete:hover{
+    background-color: var(--Yellow);
+    color: var(--Dark-red);
+}
+
+/* Almacenamiento de Fondo y Personaje */
+.new_image {
+    display: grid; /* Divide el fondo en una cuadrícula */
+    grid-template-columns: repeat(5, 1fr); /* Crea 5 columnas de igual tamaño */
+    grid-template-rows: repeat(5, 1fr); /* Crea 5 filas de igual tamaño */
+    gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
+    width: 449px; /* Ancho */
+    height: 449px; /* Largo */
+    background-image: url('../img/background_game.png'); /* Fondo del Juego */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el fondo */
+}
+
+/* Contenedor General de las funciones */
+.welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alineacion en el eje Y */
+    justify-content: center; /* Alineacion en el eje X */
+}
+
+/* Contenedor de Juego */
+.welcome_full {
+    display: flex;
+    overflow: hidden; /* Evitar que se salgan los objetos */
+    background-color: rebeccapurple; /* Color para visualizar el componente */
+    width: 958px; /* Ancho */
+    margin: 16px;
+    border-radius: 20px; /* Redondeado de contenedor */
+}
+
+/* Almacenamiento de Fondo y Personaje */
+.welcome_img {
+    gap: 0; /* No hay espacio entre las celdas de la cuadrícula */
+    width: 449px; /* Ancho */
+    height: 449px; /* Largo */
+    background-image: url('../img/Bienvenidos.png'); /* Fondo del Juego */
+    background-size: cover; /* Hace que la imagen cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el fondo */
+}
+
+/* Espacio para los checklist */
+.welcome_text {
+    display: flex; /* Divide el fondo en una cuadrícula */
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    background-color: var(--Bright-yellow); /* Color del Fondo */
+}
+
+.welcome_text b{
+    font-size: 30px;
+    color: var(--Blue-navy);
+}
+
+.welcome_text p{
+    font-size: 20px;
+    text-align: justify;
+    padding: 10px;
+}
+
+/* Espacio para los checklist */
+.text_news {
+    display: flex; /* Divide el fondo en una cuadrícula */
+    width: 509px; /* Ancho */
+    height: 449px; /* Largo */
+    background-color: var(--Gray); /* Color del Fondo */
+}
+
+/*--------------------------------PANTALLA MOVIL----------------------------------*/
+
+@media (max-width: 768px) {
+
+    .body{
+        height: 1200px;
+    }
+
+
+    /*------Configuracion de contenedor */
+    .container {
+        display: flex;
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
+        justify-content: flex-start; /* Alineacion en el eje X */
+    }
+    /*------------------------------------*/
+
+    /*----------------------------BARRA DE OPCIONES-------------------*/
+
+    /*------Configuracion general */
+    /* Contenedor de Menu */
+    .navbar {
+        display: flex;
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
+    }
+    /*--------------------------------------*/
+
+    /*------ Barra a la derecha */
+    /* Configuracion de botones */
+    .navbar .right {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    /*--------------------------------------------------------------*/
+
+    .welcome {
+        display: flex;
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        align-items: center; /* Alineacion en el eje Y */
+        justify-content: center; /* Alineacion en el eje X */
+    }
+
+    /*--------------------OPCION DE FONDOS DE PANTALLA */
+    /*------------------------------------------------*/
+
+    /*------------------------------------EL JUEGO */
+    /* Contenedor de Juego */
+    .welcome_full {
+        display: flex;
+        flex-direction: column; /* Direccion en que se mostrara el contenido */
+        width: 260px; /* Ancho */
+    }
+
+    /* Almacenamiento de Fondo y Personaje */
+    .welcome_img {
+        width: 260px; /* Ancho */
+        height: 260px; /* Alto */
+    }
+
+    .welcome_text {
+        width: 100%;
+    }
+    
+    .welcome_text b{
+        font-size: 20px;
+        color: var(--Blue-navy);
+    }
+    
+    .welcome_text p{
+        font-size: 15px;
+        text-align: justify;
+        padding: 10px;
+    }
+}
