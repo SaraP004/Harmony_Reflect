@@ -6,7 +6,7 @@
     justify-content: center; /*Alineacion en el eje X*/
     background-color: var(--Soft-green); /*Color de fondo*/
     font-family: 'Jaldi', sans-serif;
-
+    height: 100vh; /*Espacio*/
 }
 
 /*------Configuracion de contenedor*/

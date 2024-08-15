@@ -5,7 +5,7 @@ const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'HarmonyReflect',
-  password: '1234',
+  password: '10',
   port: 5432,
 });
 

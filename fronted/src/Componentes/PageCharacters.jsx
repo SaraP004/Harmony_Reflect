@@ -20,30 +20,11 @@ const OptionCharacters = () => {
         setSelectedCharacter(character);
     };
 
-    const handleSelectClick = async () => {
-      if (selectedCharacter) {
-          try {
-              const response = await fetch('http://localhost:3000/api/saveCharacter', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ character: selectedCharacter }),
-              });
-  
-              if (response.ok) {
-                  const data = await response.json();
-                  console.log('Personaje guardado:', data);
-                  window.location.href = '/login'; 
-              } else {
-                  console.error('Error al guardar el personaje');
-              }
-          } catch (error) {
-              console.error('Error:', error);
-          }
-      }
-  };
-  
+    const handleSelectClick = () => {
+        if (selectedCharacter) {
+            window.location.href = '/login'; // Asegúrate de que esta ruta sea correcta
+        }
+    };
 
     return (
         <div className={styles.body}>

@@ -1,8 +1,8 @@
 import React from "react";
-import styles from '../styles/Characters.module.css';
+import styles from '../styles/Characters.module.css'; // Exportación de diseño
 
 export function Character({ character, name, onClick, isSelected }) {
-    const img = `/img/${character}/animation_happy/happy1.png`;
+    const img = `/img/${character}/animation_happy/happy1.png`; // Constante para mostrar imagen
 
     return (
         <article

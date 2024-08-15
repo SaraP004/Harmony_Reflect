@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import usuarioRoutes from './routes/userRoutes.js';
-import characterRoutes from './routes/characterRoutes.js'; // Importa las nuevas rutas
 
 const app = express();
 
@@ -11,8 +10,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use('/api', usuarioRoutes); 
-app.use('/api', characterRoutes); 
+app.use('/api', usuarioRoutes); // Usa las rutas de usuario bajo el prefijo /api
 
 const PORT = 3000;
 app.listen(PORT, () => {
