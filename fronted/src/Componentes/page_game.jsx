@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import styles from '../styles/page_game.module.css';
 import CheckListItem from '../Aplicaciones/CheckListItem';
@@ -7,6 +7,7 @@ import useCharacterAnimation from '../Aplicaciones/animation';
 import News from './News';
 import About from './About';
 import Wallpapers from './Wallpapers'; // Asegúrate de importar Wallpapers
+import { getImageByHour } from '../Aplicaciones/ImageByHour';
 
 const Game = () => {
   return (
@@ -108,6 +109,21 @@ const DefaultContent = () => {
     setChecklist(newChecklist);
   };
 
+  const [tipImage, setTipImage] = useState('/img/Hours/morning.png');
+
+  useEffect(() => {
+    const updateTipImage = () => {
+      setTipImage(getImageByHour());
+    };
+
+    updateTipImage(); // Llama para establecer la imagen inicialmente
+
+    // Opcionalmente, puedes usar un intervalo para actualizar la imagen en tiempo real
+    const interval = setInterval(updateTipImage, 60000); // Actualizar cada minuto
+
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.bottom}>
@@ -134,16 +150,17 @@ const DefaultContent = () => {
             ))}
           </div>
         </div>
-        <div className={styles.tips}>
+      </div>
+      <div className={styles.tips}>
           <div className={styles.text_img}>
             <div className={styles.text}>
               <b>TIPS DEL DIA:</b>
+              <img id={styles.water} src={tipImage} alt="Tip" />
               <p>{currentTip}</p>
             </div>
-            <img id={styles.water} src="/img/Water.png" alt="Tip" />
+            
           </div>
         </div>
-      </div>
     </div>
   );
 };
