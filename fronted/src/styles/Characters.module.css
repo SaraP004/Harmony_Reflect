@@ -3,12 +3,11 @@
 
 .body {
     display: flex;
+    align-items: center; /*Alineacion en el eje Y*/
     justify-content: center; /*Alineacion en el eje X*/
-    background-color: var(--Soft-green); /*Color de fondo*/
+
     font-family: 'Jaldi', sans-serif;
-    height: 100%; /*Espacio*/
-    margin: 0;
-    padding: 0;
+    
 }
 
 /*------Configuracion de contenedor*/
@@ -62,21 +61,61 @@
 .AboutUs {
     display: flex;
     justify-content: center; /*Alineacion en el eje X*/
+ 
 }
 
 
 /*Contenedor de un integrante*/
+/* Estilo para la carta que envuelve al personaje */
 .member {
     display: flex;
-    flex-direction: column; /*Direccion en que se mostrara el contenido*/
-    align-items: center; /*Alineacion en el eje Y*/
-    justify-content: center; /*Alineacion en el eje X*/
-    background-color: var(--Yellow); /*Color de Fondo*/
-    width: 25%; /*Ancho*/
-    margin: 20px; /*Margen*/
-    padding: 20px; /*Espaciado*/
-    border-radius: 30px; /*Redondeado*/
+    flex-direction: column; /* Dirección en que se mostrará el contenido */
+    align-items: center; /* Alineación en el eje Y */
+    justify-content: center; /* Alineación en el eje X */
+    background-color: var(--Yellow); /* Color de Fondo */
+    width: 25%; /* Ancho */
+    margin: 20px; /* Margen */
+    padding: 20px; /* Espaciado */
+    border-radius: 30px; /* Redondeado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transición para animaciones */
 }
+
+/* Animación al pasar el cursor */
+.member:hover {
+    transform: translateY(-10px); /* Eleva la carta al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+/* Estilo cuando la carta está seleccionada */
+.selected {
+    border: 2px solid #007bff; /* Color de borde para la carta seleccionada */
+    background-color: var(--Soft-Blue); /* Fondo más claro cuando está seleccionada */
+}
+
+/* Imagen del personaje */
+.character_png {
+    width: auto; /* Ancho de la imagen */
+    height: 300px; /* Alto de la imagen */
+}
+
+/* Botón de selección */
+.downloadButton {
+    display: none; /* Ocultar el botón por defecto */
+    margin-top: 10px;
+    color: white;
+    background-color: #007bff;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.downloadButton:hover {
+    background-color: #0056b3;
+}
+
 
 /*Nombre del Integrante*/
 .member h1 {
@@ -193,6 +232,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
     }
 
     /*Contenedor de un integrante*/
