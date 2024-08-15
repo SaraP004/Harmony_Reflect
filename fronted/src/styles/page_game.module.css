@@ -6,16 +6,17 @@
     margin: 0;
     padding: 0;
     background-color: var(--Soft-green);
+    height: 100vh; /*Espacio*/
 }
 
 /*------Configuracion de contenedor*/
 .container {
     display: flex;
     flex-direction: row; /* Direccion en que se mostrara el contenido */
-    align-items: flex-start; /* Alineacion en el eje Y */
+    align-items: center; /* Alineacion en el eje Y */
     justify-content: center; /* Alineacion en el eje X */
     padding: 0;
-    margin: 10px;
+    margin-top: 30px;
     width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 /*------------------------------*/
@@ -195,10 +196,12 @@
 /* Contenedor de Tips */  
 .tips {
     display: flex;
+    flex-direction: column;
     align-items: center; /* Alineacion en el eje Y */
     justify-content: center; /* Alineacion en el eje X */
-    background-color: aqua; /* Color de fondo */
-    width: 958px; /* Ancho de contenedor */
+    background-color: var(--White); /* Color de fondo */
+    width: 200px; /* Ancho */
+    height: 449px; /* Largo */
     border-radius: 20px; /* Redondeado de contenedor */
     margin: 16px;
 }
@@ -206,23 +209,23 @@
 /* Contenedor de texto e imagen */
 .text_img {
     display: flex;
-    align-items: center; /* Alineacion en el eje Y */
     height: 100%; /* Largo de contenedor */
-    justify-content: space-between; /* Espaciado entre los elementos */
+    justify-content: center; /* Espaciado entre los elementos */
     text-align: justify; /* Alineacion en el eje X */
     margin: 30px;
 }
 
 /* Contenedor de texto */
 .text {
+    text-align: center;
     height: 70%; /* Espacio que ocupa texto en contenedor */
     margin: 5px;
 }
 
 /* Imagen de Tips */
 .tips img {
-    width: 100px; /* Ancho de imagen */
-    height: 100px; /* Largo de imagen */
+    width: 140px; /* Ancho de imagen */
+    height: auto; /* Largo de imagen */
     margin: 20px;
 }
 /*--------------------------------------------------*/
@@ -231,12 +234,17 @@
 
 @media (max-width: 768px) {
 
+    .body{
+        height: 100%;
+    }
+
     /*------Configuracion de contenedor */
     .container {
         display: flex;
         flex-direction: column; /* Direccion en que se mostrara el contenido */
         align-items: center; /* Alineacion en el eje Y */
         justify-content: center; /* Alineacion en el eje X */
+        margin: 0;
     }
     /*------------------------------------*/
 
@@ -305,6 +313,11 @@
     }
     /*------------------------------------------------*/
 
+    .tips {
+
+        height: 400px; /* Largo */
+
+    }
     
 }
 
