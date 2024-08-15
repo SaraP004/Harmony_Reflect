@@ -2,9 +2,7 @@ import { guardarPersonaje } from '../models/User.js';
 
 const Personaje = async (req, res) => {
   const { character } = req.body;
-
   try {
-    // Llamamos a la función guardarPersonaje para guardar el personaje en la BD
     const personajeId = await guardarPersonaje(character);
     res.status(200).json({ message: 'Personaje guardado exitosamente', personajeId });
   } catch (error) {

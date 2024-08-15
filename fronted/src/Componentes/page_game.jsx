@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import styles from '../styles/page_game.module.css';
 import CheckListItem from '../Aplicaciones/CheckListItem';
 import useTips from '../Aplicaciones/tipscont';
@@ -24,7 +24,7 @@ const Game = () => {
         <ul className={styles.right}>
           <li className={styles.menuItem}><Link to="/game/wallpapers">Wallpapers</Link></li>
           <li className={styles.menuItem}><Link to="/game/about">Acerca de</Link></li>
-          <li className={styles.menuItem}><a href="#account">Cuenta</a></li>
+          <li className={styles.menuItem}><a href="/">Cuenta</a></li>
         </ul>
       </nav>
       
@@ -41,23 +41,25 @@ const Game = () => {
 };
 
 const DefaultContent = () => {
-  // Objeto que contiene las diferentes imágenes del personaje según su estado
+  const location = useLocation();
+  const character = location.state?.character || 'Michu'; 
+
   const characterImages = {
     default: [
-      '/img/animation_happy/happy1.png',
-      '/img/animation_happy/happy2.png',
+      `/img/${character}/animation_happy/happy1.png`,
+      `/img/${character}/animation_happy/happy2.png`,
     ],
     completedOne: [
-      '/img/Canela/animation_happy/happy1.png',
-      '/img/Canela/animation_happy/happy2.png',
+      `/img/${character}/animation_happy/happy1.png`,
+      `/img/${character}/animation_happy/happy2.png`,
     ],
     completedTwo: [
-      '/img/Canela/animation_very_happy/veryHappy1.png',
-      '/img/Canela/animation_very_happy/veryHappy2.png',
+      `/img/${character}/animation_very_happy/veryHappy1.png`,
+      `/img/${character}/animation_very_happy/veryHappy2.png`,
     ],
     sad: [
-      '/img/Canela/animation_sad/sad1.png',
-      '/img/Canela/animation_sad/sad2.png',
+      `/img/${character}/animation_sad/sad1.png`,
+      `/img/${character}/animation_sad/sad2.png`,
     ],
   };
 

@@ -5,7 +5,7 @@ const loginUsuario = async (req, res) => {
   try {
     const usuario = await verificarUsuario(nombre_usuario, contraseña);
     if (usuario) {
-      res.status(200).json({ message: 'Inicio de sesión exitoso' });
+      res.status(200).json({ message: 'Inicio de sesión exitoso', userId: usuario.usuario.id, personaje: usuario.personaje });
     } else {
       res.status(401).json({ error: 'Nombre de usuario o contraseña incorrectos' });
     }
@@ -26,5 +26,6 @@ const crearUsuario = async (req, res) => {
 
 export {
   loginUsuario,
-  crearUsuario
+  crearUsuario,
+
 };
