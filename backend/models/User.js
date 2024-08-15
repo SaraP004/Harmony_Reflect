@@ -19,17 +19,66 @@ const verificarUsuario = async (nombre_usuario, contraseña) => {
       const usuario = result.rows[0];
       const hashedPassword = usuario.contraseña;
 
-      // Verificar que hashedPassword y contraseña no sean null o undefined
       if (hashedPassword && contraseña) {
         const match = await bcrypt.compare(contraseña, hashedPassword);
         if (match) {
-          return usuario;
+          const personajeResult = await pool.query(
+            'SELECT nombre_id($1) AS nombre_personaje',
+            [usuario.id]
+          );
+          const personaje = personajeResult.rows.length > 0 ? personajeResult.rows[0].nombre_personaje : null;
+          
+          if (personaje) {
+            return { usuario, personaje };
+          } else {
+            console.log("No se obtuvo ningún personaje.");
+            return { usuario, personaje: null };
+          }
         }
       }
     }
-    return null; // Si no coincide o no se encuentra el usuario
+    return null;
   } catch (error) {
     console.error('Error al verificar usuario:', error);
+    throw error;
+  }
+};
+
+
+
+const guardarPersonaje = async (nombre_personaje, usuario_id) => {
+  try {
+    const queryText1 = `
+      SELECT ID 
+      FROM Personajes
+      WHERE Nombre_Personaje = $1;
+    `;
+    const result = await pool.query(queryText1, [nombre_personaje]);
+
+    let personaje_id;
+    if (result.rows.length > 0) {
+      personaje_id = result.rows[0].id;
+    } else {
+      // Si el personaje no existe, insertarlo
+      const queryText2 = `
+        INSERT INTO Personajes (Nombre_Personaje)
+        VALUES ($1)
+        RETURNING ID;
+      `;
+      const insertResult = await pool.query(queryText2, [nombre_personaje]);
+      personaje_id = insertResult.rows[0].id;
+    }
+
+    const queryText3 = `
+      INSERT INTO Usuario_Personaje (Usuario_ID, Personaje_ID)
+      VALUES ($1, $2)
+      ON CONFLICT (Usuario_ID, Personaje_ID) DO NOTHING;
+    `;
+    await pool.query(queryText3, [usuario_id, personaje_id]);
+
+    console.log("Personaje guardado exitosamente");
+  } catch (error) {
+    console.error("Error al guardar el personaje:", error);
     throw error;
   }
 };
@@ -46,8 +95,6 @@ const crearUsuario = async (usuario) => {
     );
 
     const nuevoUsuarioId = result.rows[0].id;
-
-    // Guardar personaje si se proporciona
     if (personaje) {
       await guardarPersonaje(personaje, nuevoUsuarioId);
     }
@@ -59,48 +106,9 @@ const crearUsuario = async (usuario) => {
   }
 };
 
-const guardarPersonaje = async (nombre_personaje, usuario_id) => {
-  try {
-    // Buscar el ID del personaje por nombre
-    const queryText1 = `
-      SELECT ID 
-      FROM Personajes
-      WHERE Nombre_Personaje = $1;
-    `;
-    const result = await pool.query(queryText1, [nombre_personaje]);
-
-    let personaje_id;
-    if (result.rows.length > 0) {
-      // Si el personaje ya existe, usar su ID
-      personaje_id = result.rows[0].id;
-    } else {
-      // Si el personaje no existe, insertarlo
-      const queryText2 = `
-        INSERT INTO Personajes (Nombre_Personaje)
-        VALUES ($1)
-        RETURNING ID;
-      `;
-      const insertResult = await pool.query(queryText2, [nombre_personaje]);
-      personaje_id = insertResult.rows[0].id;
-    }
-
-    // Insertar en Usuario_Personaje si no existe ya la asociación
-    const queryText3 = `
-      INSERT INTO Usuario_Personaje (Usuario_ID, Personaje_ID)
-      VALUES ($1, $2)
-      ON CONFLICT (Usuario_ID, Personaje_ID) DO NOTHING;
-    `;
-    await pool.query(queryText3, [usuario_id, personaje_id]);
-
-    console.log("Personaje guardado exitosamente");
-  } catch (error) {
-    console.error("Error al guardar el personaje:", error);
-    throw error;
-  }
-};
 
 export {
   verificarUsuario,
-  crearUsuario,
-  guardarPersonaje, 
+  guardarPersonaje,
+  crearUsuario
 };
