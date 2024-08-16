@@ -1,24 +1,32 @@
-import React, { useState, useEffect } from 'react';
-
-const tips = [
-  "Cada hora, tómate un momento para recargar tu mente y seguir adelante.",
-"Cuidar tu hidratación es crucial; beber agua te ayuda a cuidar de ti mismo.",
-"Incluso 30 minutos de actividad diaria pueden fortalecer tanto cuerpo como mente.",
-"Descansar 7-8 horas cada noche es fundamental para renovar tu energía y bienestar.",
-"Levántate y estira, cada media hora, para liberar tu cuerpo de tensiones.",
-"El agua es esencial para tu bienestar físico y mental; asegúrate de mantenerte hidratado.",
-"El ejercicio regular puede ser un gran aliado para mejorar tu ánimo y energía diaria.",
-"Un horario regular de sueño puede ser transformador para mejorar tu calidad de descanso."
-];
+import { useState, useEffect } from 'react';
 
 const useTips = () => {
-  const [currentTip, setCurrentTip] = useState(tips[0]);
+  const [currentTip, setCurrentTip] = useState('Cargando tip...');
 
   useEffect(() => {
-    const tipInterval = setInterval(() => {
-      setCurrentTip(tips[Math.floor(Math.random() * tips.length)]);
-    }, 20000); 
+    const fetchTip = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/ai', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
+        if (response.ok) {
+          const data = await response.json();
+          setCurrentTip(data.tip);
+        } else {
+          setCurrentTip('No se pudo obtener el tip.');
+        }
+      } catch (error) {
+        console.error('Error fetching tip:', error);
+        setCurrentTip('No se pudo obtener el tip.');
+      }
+    };
+
+    fetchTip();
+    const tipInterval = setInterval(fetchTip, 20000);
     return () => clearInterval(tipInterval);
   }, []);
 
