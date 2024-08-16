@@ -11,6 +11,7 @@ const Login = () => {
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const [characterName, setCharacterName] = useState('');
+  const [navigateToGame, setNavigateToGame] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,14 +21,11 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleUserLogin = async (e) => {
     e.preventDefault();
     const { nombre_usuario, contraseña, tipo_usuario } = credentials;
-    const url = tipo_usuario === 'administrador' 
-      ? 'http://localhost:3000/api/admin'
-      : 'http://localhost:3000/api/login'; 
     try {
-      const response = await fetch(url, {
+      const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,14 +36,9 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        if (tipo_usuario === 'usuario') {
-          setCharacterName(data.personaje || ''); 
-          setMessage('Inicio de sesión exitoso como usuario');
-          navigate('/game', { state: { character: characterName } });
-        } else if (tipo_usuario === 'administrador') {
-          navigate('/administration'); 
-          setMessage('Inicio de sesión exitoso como administrador');
-        }
+        setMessage('Inicio de sesión exitoso.');
+        setCharacterName(tipo_usuario === 'usuario' ? data.personaje : '');
+        setNavigateToGame(tipo_usuario === 'usuario');
         setShowMessage(true);
       } else {
         setMessage(data.error || 'Nombre de usuario o contraseña incorrectos');
@@ -58,9 +51,47 @@ const Login = () => {
     }
   };
 
+  const handleAdminLogin = async (e) => {
+    e.preventDefault();
+    const { nombre_usuario, contraseña } = credentials;
+    try {
+      const response = await fetch('http://localhost:3000/api/admin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ nombre_usuario, contraseña }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage('Inicio de sesión exitoso como administrador');
+        navigate('/administration');
+      } else {
+        setMessage(data.error || 'Nombre de usuario o contraseña incorrectos');
+        setShowMessage(true);
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      setMessage('Error de red. Inténtalo de nuevo.');
+      setShowMessage(true);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    if (credentials.tipo_usuario === 'administrador') {
+      handleAdminLogin(e);
+    } else {
+      handleUserLogin(e);
+    }
+  };
+
   const closeMessage = () => {
     setShowMessage(false);
-    // No hace falta redirigir aquí porque ya hemos hecho la redirección en handleSubmit
+    if (navigateToGame) {
+      navigate('/game', { state: { character: characterName } });
+    }
   };
 
   return (
@@ -122,7 +153,7 @@ const Login = () => {
                   className={loginstyle.button} 
                   id={loginstyle.CancelButton} 
                   type="button" 
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => navigate('/')}
                 >
                   Cancelar
                 </button>
