@@ -8,6 +8,7 @@ import News from './News';
 import About from './About';
 import Wallpapers from './Wallpapers'; // Asegúrate de importar Wallpapers
 import { getImageByHour } from '../Aplicaciones/ImageByHour';
+import NotificationComponent from './NotificationComponent'; 
 
 const Game = () => {
   return (
@@ -41,6 +42,49 @@ const Game = () => {
 };
 
 const DefaultContent = () => {
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/notifications');
+        const data = await response.json();
+        setNotifications(data);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+
+    fetchNotifications();
+  }, []);
+
+  useEffect(() => {
+    const checkNotifications = () => {
+      const now = new Date();
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
+  
+      const updatedNotifications = notifications.map(notification => {
+        const [notifHour, notifMinute] = notification.time.split(':').map(Number);
+  
+        if (
+          notifHour === currentHour &&
+          notifMinute === currentMinute
+        ) {
+          return { ...notification, show: true };
+        }
+        return notification;
+      });
+  
+      console.log('Updated Notifications:', updatedNotifications); // Aquí se registra el estado actualizado de las notificaciones
+      setNotifications(updatedNotifications); // Actualiza el estado de las notificaciones
+    };
+  
+    const interval = setInterval(checkNotifications, 60000); // Verificar cada minuto
+    return () => clearInterval(interval); // Limpiar el intervalo cuando se desmonte el componente
+  }, [notifications]);
+
+
   const location = useLocation();
   const character = location.state?.character || 'Michu'; 
 
