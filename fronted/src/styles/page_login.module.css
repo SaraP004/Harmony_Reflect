@@ -219,8 +219,6 @@
 }
 
 
-
-
 .overlay {
     position: fixed;
     top: 0;
@@ -250,6 +248,9 @@
     border-radius: 4px;
     cursor: pointer;
   }
-
   
-  
+.userTypeLabel {
+    font-size: 20px; 
+    font-family: 'Jaldi', sans-serif;
+    margin-bottom: 0.5rem;
+  }

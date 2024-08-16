@@ -191,6 +191,8 @@ th {
     background-color: var(--Gray); /* Color del Fondo */
 }
 
+
+
 /*--------------------------------PANTALLA MOVIL----------------------------------*/
 
 @media (max-width: 768px) {

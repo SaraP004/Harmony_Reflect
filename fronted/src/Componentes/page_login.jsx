@@ -6,10 +6,10 @@ const Login = () => {
   const [credentials, setCredentials] = useState({
     nombre_usuario: '',
     contraseña: '',
+    tipo_usuario: 'usuario',
   });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
-  const [navigateToGame, setNavigateToGame] = useState(false);
   const [characterName, setCharacterName] = useState('');
   const navigate = useNavigate();
 
@@ -22,10 +22,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nombre_usuario, contraseña } = credentials;
-
+    const { nombre_usuario, contraseña, tipo_usuario } = credentials;
+    const url = tipo_usuario === 'administrador' 
+      ? 'http://localhost:3000/api/admin'
+      : 'http://localhost:3000/api/login'; 
     try {
-      const response = await fetch('http://localhost:3000/api/login', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,10 +38,15 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage('Inicio de sesión exitoso.');
-        setCharacterName(data.personaje);
+        if (tipo_usuario === 'usuario') {
+          setCharacterName(data.personaje || ''); 
+          setMessage('Inicio de sesión exitoso como usuario');
+          navigate('/game', { state: { character: characterName } });
+        } else if (tipo_usuario === 'administrador') {
+          navigate('/administration'); 
+          setMessage('Inicio de sesión exitoso como administrador');
+        }
         setShowMessage(true);
-        setNavigateToGame(true);
       } else {
         setMessage(data.error || 'Nombre de usuario o contraseña incorrectos');
         setShowMessage(true);
@@ -53,9 +60,7 @@ const Login = () => {
 
   const closeMessage = () => {
     setShowMessage(false);
-    if (navigateToGame) {
-      navigate('/game', { state: { character: characterName } });
-    }
+    // No hace falta redirigir aquí porque ya hemos hecho la redirección en handleSubmit
   };
 
   return (
@@ -80,15 +85,52 @@ const Login = () => {
               </div>
               <div className={loginstyle.labels}>
                 <label id={loginstyle.username} htmlFor="nombre_usuario">Nombre de Usuario</label>
-                <input className={loginstyle.inputField} type="text" id="nombre_usuario" name="nombre_usuario" value={credentials.nombre_usuario} onChange={handleChange} required />
+                <input 
+                  className={loginstyle.inputField} 
+                  type="text" 
+                  id="nombre_usuario" 
+                  name="nombre_usuario" 
+                  value={credentials.nombre_usuario} 
+                  onChange={handleChange} 
+                  required 
+                />
                 <label id={loginstyle.password} htmlFor="contraseña">Contraseña</label>
-                <input className={loginstyle.inputField} type="password" id="contraseña" name="contraseña" value={credentials.contraseña} onChange={handleChange} required />
+                <input 
+                  className={loginstyle.inputField} 
+                  type="password" 
+                  id="contraseña" 
+                  name="contraseña" 
+                  value={credentials.contraseña} 
+                  onChange={handleChange} 
+                  required 
+                />
+                <label className={loginstyle.userTypeLabel} htmlFor="tipo_usuario" style={{ fontSize: '1.2em' }}>Tipo de Usuario</label>
+                <select 
+                  className={loginstyle.inputField} 
+                  id="tipo_usuario" 
+                  name="tipo_usuario" 
+                  value={credentials.tipo_usuario} 
+                  onChange={handleChange} 
+                  required
+                >
+                  <option value="usuario">Usuario</option>
+                  <option value="administrador">Administrador</option>
+                </select>
               </div>
               <div className={loginstyle.buttons}>
-                <button className={loginstyle.button} id={loginstyle.CancelButton} type="button" onClick={() => window.location.href = '/'}>
+                <button 
+                  className={loginstyle.button} 
+                  id={loginstyle.CancelButton} 
+                  type="button" 
+                  onClick={() => window.location.href = '/'}
+                >
                   Cancelar
                 </button>
-                <button className={loginstyle.button} id={loginstyle.AcceptButton} type="submit">
+                <button 
+                  className={loginstyle.button} 
+                  id={loginstyle.AcceptButton} 
+                  type="submit"
+                >
                   Iniciar
                 </button>
               </div>

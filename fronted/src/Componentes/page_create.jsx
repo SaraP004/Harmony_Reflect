@@ -4,14 +4,14 @@ import { Character } from "../Aplicaciones/Characters";
 import stylesCharacters from '../styles/Characters.module.css';
 
 const users = [
-    {
-        character: "Michu",
-        name: "El divertido Michu",
-    },
-    {
-        character: "Canela",
-        name: "La adorable Canela",
-    },
+  {
+    character: "Michu",
+    name: "El divertido Michu",
+  },
+  {
+    character: "Canela",
+    name: "La adorable Canela",
+  },
 ];
 
 const Create = () => {
@@ -27,6 +27,8 @@ const Create = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState('');
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [characterMessage, setCharacterMessage] = useState('');
+  const [showCharacterMessage, setShowCharacterMessage] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -37,10 +39,19 @@ const Create = () => {
 
   const handleCharacterClick = (character) => {
     setSelectedCharacter(character);
+    setCharacterMessage(''); // Limpia el mensaje de advertencia cuando se selecciona un personaje
+    setShowCharacterMessage(false);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
+    if (!selectedCharacter) {
+      setCharacterMessage('No olvides seleccionar a tu compañero.');
+      setShowCharacterMessage(true);
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:3000/api/create', {
         method: 'POST',
@@ -52,21 +63,16 @@ const Create = () => {
           personaje: selectedCharacter // Incluye el personaje seleccionado en la solicitud
         }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Error al registrar');
       }
-  
+
       const data = await response.json();
       console.log('Usuario registrado:', data);
-  
-      if (formData.edad < 18) {
-        setMessage('Eres menor de edad. Recuerda tener la supervisión de un adulto.');
-        setRedirectUrl('/login');
-      } else {
-        setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
-        setRedirectUrl('/login');
-      }
+
+      setMessage('Registro exitoso. Ahora puedes iniciar sesión.');
+      setRedirectUrl('/login');
       setShowMessage(true);
     } catch (error) {
       console.error('Error al registrar:', error);
@@ -77,7 +83,13 @@ const Create = () => {
 
   const closeMessage = () => {
     setShowMessage(false);
-    window.location.href = redirectUrl;
+    if (redirectUrl) {
+      window.location.href = redirectUrl;
+    }
+  };
+
+  const closeCharacterMessage = () => {
+    setShowCharacterMessage(false);
   };
 
   return (
@@ -90,8 +102,16 @@ const Create = () => {
           </div>
         </div>
       )}
+      {showCharacterMessage && (
+        <div className={styles.overlay}>
+          <div className={styles.messageBox}>
+            <p>{characterMessage}</p>
+            <button className={styles.closeButton} onClick={closeCharacterMessage}>Aceptar</button>
+          </div>
+        </div>
+      )}
       <div className={styles.container}>
-        <div className={styles.space}>
+        <div className={styles.leftContainer}>
           <div className={styles.form}>
             <form onSubmit={handleSubmit}>
               <div className={styles.tittle}>
@@ -148,34 +168,6 @@ const Create = () => {
                   onChange={handleChange}
                   required
                 />
-
-                <div className={stylesCharacters.body}>
-                  <div className={stylesCharacters.container}>
-                    <div className={stylesCharacters.aboutUS}>
-                      <div className={stylesCharacters.textAboutUs}>
-                        <h1 id={stylesCharacters.tittleContext}>¿Quién será tu compañero?</h1>
-                        <p>Nuestros amigables personajes quieren conocerte, así que elige a quién te gustaría tener.</p>
-                      </div>
-                      <div className={stylesCharacters.AboutUs}>
-                        {users.map(({ character, name }) => (
-                          <Character
-                            key={character}
-                            character={character}
-                            name={name}
-                            isSelected={selectedCharacter === character}
-                            onClick={() => handleCharacterClick(character)}
-                          />
-                        ))}
-                      </div>
-                      {selectedCharacter && (
-                        <button className={stylesCharacters.downloadButton} type="button">
-                          Seleccionar
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
               </div>
               <div className={styles.buttons}>
                 <button className={styles.button} id={styles.AcceptButton} type="submit">
@@ -188,8 +180,28 @@ const Create = () => {
             </form>
           </div>
         </div>
-        <div className={styles.imagen}>
-          <img className={styles.registra_img} src="/img/REGISTRAR.png" alt="Registrar" />
+        <div className={styles.rightContainer}>
+          <div className={stylesCharacters.body}>
+            <div className={stylesCharacters.container}>
+              <div className={stylesCharacters.aboutUS}>
+                <div className={stylesCharacters.textAboutUs}>
+                  <h1 id={stylesCharacters.tittleContext}>¿Quién será tu compañero?</h1>
+                  <p>Nuestros amigables personajes quieren conocerte, así que elige a quién te gustaría tener.</p>
+                </div>
+                <div className={stylesCharacters.AboutUs}>
+                  {users.map(({ character, name }) => (
+                    <Character
+                      key={character}
+                      character={character}
+                      name={name}
+                      isSelected={selectedCharacter === character}
+                      onClick={() => handleCharacterClick(character)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

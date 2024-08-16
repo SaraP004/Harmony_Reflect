@@ -27,5 +27,4 @@ const crearUsuario = async (req, res) => {
 export {
   loginUsuario,
   crearUsuario,
-
 };
