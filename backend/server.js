@@ -20,6 +20,7 @@ app.use('/api', usuarioRoutes);
 app.use('/api', characterRoutes); 
 app.use('/api', aiRoutes); 
 app.use('/api', adminRoutes); 
+app.use('/api', notificationRoutes); // Usa las rutas de notificaciones
 
 const PORT = 3000;
 app.listen(PORT, () => {
