@@ -4,8 +4,11 @@ import usuarioRoutes from './routes/userRoutes.js';
 import characterRoutes from './routes/characterRoutes.js';
 import adminRoutes  from './routes/adminRoutes.js';
 import aiRoutes from './routes/ai.js';
+import connectDB from './config/db.js'; 
+import notificationRoutes from './routes/notificationRoutes.js'; 
 
 const app = express();
+connectDB(); // Conecta a la base de dato
 
 app.use(cors({
   origin: 'http://localhost:5173',
