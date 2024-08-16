@@ -136,7 +136,7 @@
     align-items: center; /*Alineacion en el eje Y*/
     justify-content: center; /*Alineacion en el eje X*/
     width: auto; /*Ancho*/
-    height: 300px; /*Largo*/
+    height: 200px; /*Largo*/
 }
 /*--------------------------------------*/
 
@@ -198,9 +198,9 @@
     /*--------------------------------------*/
 
     /*-----------------------Imagen*/
-    #imgDescription {
+    #character_png {
         width: auto; /*Ancho de la Imagen*/
-        height: 50px; /*Alto de la Imagen*/
+        height: 150px; /*Alto de la Imagen*/
     }
     /*--------------------------------------*/
     /*--------------------------------------*/
